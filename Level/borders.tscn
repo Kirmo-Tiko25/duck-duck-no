@@ -1,0 +1,38 @@
+[gd_scene load_steps=5 format=3 uid="uid://b0bjmtfj0cuvg"]
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_uxore"]
+b = Vector2(1160, 0)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_cyqte"]
+a = Vector2(1160, 0)
+b = Vector2(1160, 650)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_2xxml"]
+a = Vector2(1160, 650)
+b = Vector2(0, 650)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_tyoca"]
+a = Vector2(0, 650)
+b = Vector2(0, 0)
+
+[node name="Borders" type="Node2D"]
+
+[node name="North_border" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="North_border"]
+shape = SubResource("SegmentShape2D_uxore")
+
+[node name="East_border" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="East_border"]
+shape = SubResource("SegmentShape2D_cyqte")
+
+[node name="South_border" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="South_border"]
+shape = SubResource("SegmentShape2D_2xxml")
+
+[node name="West_boreder" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="West_boreder"]
+shape = SubResource("SegmentShape2D_tyoca")

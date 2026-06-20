@@ -1,0 +1,38 @@
+[gd_scene load_steps=9 format=3 uid="uid://c1q6acyi06500"]
+
+[ext_resource type="PackedScene" uid="uid://cnlkvy0jm4xve" path="res://Level/MovingCamera.tscn" id="1_4y3vx"]
+[ext_resource type="PackedScene" uid="uid://cp0r1vciihuun" path="res://Duck/Duck.tscn" id="1_bt7lf"]
+[ext_resource type="Texture2D" uid="uid://cg32ljie2vtj6" path="res://Art/BG_scetch.png" id="2_ndeqo"]
+[ext_resource type="PackedScene" uid="uid://c38pirg0c0dr4" path="res://Level/objects/stone.tscn" id="3_4y3vx"]
+[ext_resource type="PackedScene" uid="uid://2vclwnntgvlt" path="res://Level/objects/stone2.tscn" id="4_381eo"]
+[ext_resource type="PackedScene" uid="uid://c0f2cod6klnb6" path="res://Level/objects/Stone3.tscn" id="5_d204d"]
+[ext_resource type="PackedScene" uid="uid://bgljblfp4jm2o" path="res://Level/objects/Stone4.tscn" id="6_jc4vw"]
+[ext_resource type="PackedScene" uid="uid://b0bjmtfj0cuvg" path="res://Level/borders.tscn" id="7_ndeqo"]
+
+[node name="Test" type="Node"]
+
+[node name="MovingCamera" parent="." instance=ExtResource("1_4y3vx")]
+ScrollSpeed = 20.0
+
+[node name="Borders" parent="." instance=ExtResource("7_ndeqo")]
+
+[node name="CharacterBody2D" parent="." instance=ExtResource("1_bt7lf")]
+position = Vector2(537, 508)
+
+[node name="water" type="Sprite2D" parent="."]
+position = Vector2(576, 348)
+rotation = 1.5707964
+scale = Vector2(1.7, 1.7)
+texture = ExtResource("2_ndeqo")
+
+[node name="Stone" parent="." instance=ExtResource("3_4y3vx")]
+position = Vector2(282, 431)
+
+[node name="Stone2" parent="." instance=ExtResource("4_381eo")]
+position = Vector2(645, 315)
+
+[node name="Stone3" parent="." instance=ExtResource("5_d204d")]
+position = Vector2(228, 91)
+
+[node name="Stone4" parent="." instance=ExtResource("6_jc4vw")]
+position = Vector2(892, 96)

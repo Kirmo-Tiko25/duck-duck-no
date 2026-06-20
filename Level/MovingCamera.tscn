@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://cnlkvy0jm4xve"]
+
+[ext_resource type="Script" uid="uid://dj05kn12nyowh" path="res://Level/MovingCamera.cs" id="1_rigns"]
+
+[node name="MovingCamera" type="Camera2D"]
+offset = Vector2(576, 324)
+script = ExtResource("1_rigns")

@@ -11,8 +11,13 @@ config_version=5
 [application]
 
 config/name="Duck-game"
-config/features=PackedStringArray("4.5", "Mobile")
+run/main_scene="uid://c1q6acyi06500"
+config/features=PackedStringArray("4.5", "C#", "Mobile")
 config/icon="res://icon.svg"
+
+[display]
+
+window/stretch/mode="viewport"
 
 [dotnet]
 
