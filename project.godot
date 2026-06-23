@@ -23,6 +23,10 @@ window/stretch/mode="viewport"
 
 project/assembly_name="Duck-game"
 
+[global_group]
+
+duck=""
+
 [rendering]
 
 renderer/rendering_method="mobile"

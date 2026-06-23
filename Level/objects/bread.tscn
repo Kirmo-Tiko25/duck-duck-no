@@ -1,0 +1,43 @@
+[gd_scene load_steps=6 format=3 uid="uid://ekiafhuxf4gw"]
+
+[ext_resource type="Script" uid="uid://wl7mc85jtied" path="res://Level/objects/Bread.cs" id="1_nya8b"]
+[ext_resource type="Texture2D" uid="uid://c1q42pmbd21vy" path="res://Art/BreadPrototype.png" id="1_twkk3"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4bjk8"]
+size = Vector2(50, 30)
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_ccgrh"]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_fyuws"]
+particle_flag_disable_z = true
+emission_shape = 1
+emission_sphere_radius = 90.0
+spread = 180.0
+initial_velocity_max = 55.829998
+gravity = Vector3(0, 20, 0)
+damping_min = 11.774
+damping_max = 11.774
+scale_min = 3.0
+scale_max = 20.0
+color = Color(0.77688426, 0.67507935, 0.46046704, 1)
+
+[node name="Bread" type="Area2D"]
+script = ExtResource("1_nya8b")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("1_twkk3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_4bjk8")
+
+[node name="CrumbParticles" type="GPUParticles2D" parent="."]
+z_index = 4
+emitting = false
+amount = 6
+texture = SubResource("PlaceholderTexture2D_ccgrh")
+lifetime = 6.0
+one_shot = true
+explosiveness = 0.8
+draw_order = 0
+process_material = SubResource("ParticleProcessMaterial_fyuws")

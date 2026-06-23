@@ -7,6 +7,7 @@ radius = 53.76275
 height = 178.13475
 
 [node name="Stone3" type="StaticBody2D"]
+z_index = 5
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(0.05, 0.05)
