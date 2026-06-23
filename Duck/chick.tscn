@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=3 uid="uid://cd5itpkykdcmn"]
+
+[ext_resource type="Texture2D" uid="uid://i5sbvl04rmkr" path="res://Art/Duck.png" id="1_lo2b6"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_lo2b6"]
+friction = 0.2
+bounce = 1.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_80kjk"]
+radius = 30.0
+
+[node name="Chick" type="RigidBody2D"]
+z_index = 10
+collision_layer = 2
+collision_mask = 3
+mass = 0.5
+physics_material_override = SubResource("PhysicsMaterial_lo2b6")
+gravity_scale = 2.0
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("1_lo2b6")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_80kjk")

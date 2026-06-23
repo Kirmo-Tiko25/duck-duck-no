@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://c1q6acyi06500"]
+[gd_scene load_steps=11 format=3 uid="uid://c1q6acyi06500"]
 
 [ext_resource type="PackedScene" uid="uid://cnlkvy0jm4xve" path="res://Level/MovingCamera.tscn" id="1_4y3vx"]
 [ext_resource type="PackedScene" uid="uid://cp0r1vciihuun" path="res://Duck/Duck.tscn" id="1_bt7lf"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://bgljblfp4jm2o" path="res://Level/objects/Stone4.tscn" id="6_jc4vw"]
 [ext_resource type="PackedScene" uid="uid://b0bjmtfj0cuvg" path="res://Level/borders.tscn" id="7_ndeqo"]
 [ext_resource type="PackedScene" uid="uid://ekiafhuxf4gw" path="res://Level/objects/bread.tscn" id="9_381eo"]
+[ext_resource type="PackedScene" uid="uid://cd5itpkykdcmn" path="res://Duck/chick.tscn" id="10_d204d"]
 
 [node name="Test" type="Node"]
 
@@ -40,3 +41,6 @@ position = Vector2(892, 96)
 
 [node name="Bread" parent="." instance=ExtResource("9_381eo")]
 position = Vector2(400, 272)
+
+[node name="Chick" parent="." instance=ExtResource("10_d204d")]
+position = Vector2(725, 214)
