@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=3 uid="uid://dbt4l1k5pq7om"]
+
+[ext_resource type="PackedScene" uid="uid://cp0r1vciihuun" path="res://Duck/Duck.tscn" id="1_3k6pt"]
+
+[node name="LakeLevel" type="Node2D"]
+
+[node name="Background" type="Parallax2D" parent="."]
+
+[node name="Obstacles" type="TileMapLayer" parent="."]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="Entities" type="Node2D" parent="."]
+
+[node name="Duck" parent="Entities" instance=ExtResource("1_3k6pt")]

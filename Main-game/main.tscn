@@ -1,0 +1,25 @@
+[gd_scene load_steps=2 format=3 uid="uid://bpixkaenh04wb"]
+
+[ext_resource type="PackedScene" uid="uid://dbt4l1k5pq7om" path="res://Level/lake_level.tscn" id="2_lyemg"]
+
+[node name="Main" type="Node"]
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="MainMenu" type="Control" parent="UI"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="HUD" type="Control" parent="UI"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Levels" type="Node2D" parent="."]
+
+[node name="LakeLevel" parent="Levels" instance=ExtResource("2_lyemg")]
+
+[node name="AudioManager" type="Node" parent="."]

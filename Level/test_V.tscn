@@ -1,0 +1,48 @@
+[gd_scene load_steps=11 format=3 uid="uid://c1ol45ot6wj1"]
+
+[ext_resource type="PackedScene" uid="uid://cnlkvy0jm4xve" path="res://Level/MovingCamera.tscn" id="1_rfo0b"]
+[ext_resource type="PackedScene" uid="uid://b0bjmtfj0cuvg" path="res://Level/borders.tscn" id="2_h77tk"]
+[ext_resource type="PackedScene" uid="uid://cp0r1vciihuun" path="res://Duck/Duck.tscn" id="3_3mc1w"]
+[ext_resource type="Texture2D" uid="uid://cg32ljie2vtj6" path="res://Art/BG_scetch.png" id="4_wkve2"]
+[ext_resource type="PackedScene" uid="uid://c38pirg0c0dr4" path="res://Level/objects/stone.tscn" id="5_q3m5d"]
+[ext_resource type="PackedScene" uid="uid://2vclwnntgvlt" path="res://Level/objects/stone2.tscn" id="6_3hwu2"]
+[ext_resource type="PackedScene" uid="uid://c0f2cod6klnb6" path="res://Level/objects/Stone3.tscn" id="7_n1s3e"]
+[ext_resource type="PackedScene" uid="uid://bgljblfp4jm2o" path="res://Level/objects/Stone4.tscn" id="8_p03wr"]
+[ext_resource type="PackedScene" uid="uid://ekiafhuxf4gw" path="res://Level/objects/bread.tscn" id="9_e8s8e"]
+[ext_resource type="PackedScene" uid="uid://cd5itpkykdcmn" path="res://Duck/chick.tscn" id="10_j1cq0"]
+
+[node name="Test" type="Node"]
+
+[node name="MovingCamera" parent="." instance=ExtResource("1_rfo0b")]
+position = Vector2(-250, 257)
+ScrollSpeed = 20.0
+
+[node name="Borders" parent="." instance=ExtResource("2_h77tk")]
+position = Vector2(649, -2)
+rotation = 1.5707964
+
+[node name="CharacterBody2D" parent="." instance=ExtResource("3_3mc1w")]
+position = Vector2(343, 1053)
+
+[node name="water" type="Sprite2D" parent="."]
+position = Vector2(353, 578)
+scale = Vector2(1.7, 1.7)
+texture = ExtResource("4_wkve2")
+
+[node name="Stone" parent="." instance=ExtResource("5_q3m5d")]
+position = Vector2(133, 892)
+
+[node name="Stone2" parent="." instance=ExtResource("6_3hwu2")]
+position = Vector2(556, 699)
+
+[node name="Stone3" parent="." instance=ExtResource("7_n1s3e")]
+position = Vector2(220, 459)
+
+[node name="Stone4" parent="." instance=ExtResource("8_p03wr")]
+position = Vector2(573, 274)
+
+[node name="Bread" parent="." instance=ExtResource("9_e8s8e")]
+position = Vector2(129, 697)
+
+[node name="Chick" parent="." instance=ExtResource("10_j1cq0")]
+position = Vector2(645, 514)

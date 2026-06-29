@@ -11,13 +11,16 @@ config_version=5
 [application]
 
 config/name="Duck-game"
-run/main_scene="uid://c1q6acyi06500"
+run/main_scene="uid://c1ol45ot6wj1"
 config/features=PackedStringArray("4.5", "C#", "Mobile")
 config/icon="res://icon.svg"
 
 [display]
 
+window/size/viewport_width=648
+window/size/viewport_height=1152
 window/stretch/mode="viewport"
+window/handheld/orientation=1
 
 [dotnet]
 
