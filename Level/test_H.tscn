@@ -7,16 +7,14 @@
 [ext_resource type="PackedScene" uid="uid://2vclwnntgvlt" path="res://Level/objects/stone2.tscn" id="4_381eo"]
 [ext_resource type="PackedScene" uid="uid://c0f2cod6klnb6" path="res://Level/objects/Stone3.tscn" id="5_d204d"]
 [ext_resource type="PackedScene" uid="uid://bgljblfp4jm2o" path="res://Level/objects/Stone4.tscn" id="6_jc4vw"]
-[ext_resource type="PackedScene" uid="uid://b0bjmtfj0cuvg" path="res://Level/borders.tscn" id="7_ndeqo"]
 [ext_resource type="PackedScene" uid="uid://ekiafhuxf4gw" path="res://Level/objects/bread.tscn" id="9_381eo"]
 [ext_resource type="PackedScene" uid="uid://cd5itpkykdcmn" path="res://Duck/chick.tscn" id="10_d204d"]
+[ext_resource type="PackedScene" uid="uid://dwjrjo7g6ae0c" path="res://Level/parallax_background.tscn" id="10_fpet4"]
 
 [node name="Test" type="Node"]
 
 [node name="MovingCamera" parent="." instance=ExtResource("1_4y3vx")]
 ScrollSpeed = 20.0
-
-[node name="Borders" parent="." instance=ExtResource("7_ndeqo")]
 
 [node name="CharacterBody2D" parent="." instance=ExtResource("1_bt7lf")]
 position = Vector2(537, 508)
@@ -44,3 +42,7 @@ position = Vector2(400, 272)
 
 [node name="Chick" parent="." instance=ExtResource("10_d204d")]
 position = Vector2(725, 214)
+
+[node name="ParallaxBackground" parent="." instance=ExtResource("10_fpet4")]
+offset = Vector2(200, 0)
+transform = Transform2D(1, 0, 0, 1, 200, 0)

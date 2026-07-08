@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://dwjrjo7g6ae0c"]
+
+[ext_resource type="Texture2D" uid="uid://b6o3wbf62odcq" path="res://Art/WaterAsset/Water.png" id="1_pykmk"]
+
+[node name="ParallaxBackground" type="ParallaxBackground"]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="."]
+position = Vector2(295, -266)
+motion_mirroring = Vector2(1000, 1000)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxLayer"]
+position = Vector2(-44, 759)
+texture = ExtResource("1_pykmk")

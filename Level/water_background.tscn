@@ -1,0 +1,14 @@
+[gd_scene load_steps=4 format=3 uid="uid://bv0jvl6fafv6b"]
+
+[ext_resource type="Script" uid="uid://rpvvir1qi55a" path="res://Level/WaterBackground.cs" id="1_2sldj"]
+[ext_resource type="TileSet" uid="uid://de6d5tiw6ixk0" path="res://Level/water_tileset.tres" id="1_pfqnt"]
+[ext_resource type="TileSet" uid="uid://h3sb88p4r3lc" path="res://Level/waves_tileset.tres" id="2_br32r"]
+
+[node name="WaterBackground" type="Node2D"]
+script = ExtResource("1_2sldj")
+
+[node name="WaterBase" type="TileMapLayer" parent="."]
+tile_set = ExtResource("1_pfqnt")
+
+[node name="Waves" type="TileMapLayer" parent="."]
+tile_set = ExtResource("2_br32r")

@@ -1,16 +1,13 @@
-[gd_scene load_steps=2 format=3 uid="uid://bpixkaenh04wb"]
+[gd_scene load_steps=3 format=3 uid="uid://bpixkaenh04wb"]
 
-[ext_resource type="PackedScene" uid="uid://dbt4l1k5pq7om" path="res://Level/lake_level.tscn" id="2_lyemg"]
+[ext_resource type="PackedScene" uid="uid://dmb7jk3hacck8" path="res://Main-game/main_menu.tscn" id="1_hdpsl"]
+[ext_resource type="PackedScene" uid="uid://bn8u1bdr4snnu" path="res://Main-game/Level_select.tscn" id="2_hdpsl"]
 
 [node name="Main" type="Node"]
 
-[node name="UI" type="CanvasLayer" parent="."]
+[node name="MainMenu" parent="." instance=ExtResource("1_hdpsl")]
 
-[node name="MainMenu" type="Control" parent="UI"]
-layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+[node name="UI" type="CanvasLayer" parent="."]
 
 [node name="HUD" type="Control" parent="UI"]
 layout_mode = 3
@@ -19,7 +16,8 @@ offset_right = 40.0
 offset_bottom = 40.0
 
 [node name="Levels" type="Node2D" parent="."]
+visible = false
 
-[node name="LakeLevel" parent="Levels" instance=ExtResource("2_lyemg")]
+[node name="Level_select" parent="Levels" instance=ExtResource("2_hdpsl")]
 
 [node name="AudioManager" type="Node" parent="."]

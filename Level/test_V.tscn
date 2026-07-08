@@ -1,7 +1,6 @@
 [gd_scene load_steps=11 format=3 uid="uid://c1ol45ot6wj1"]
 
 [ext_resource type="PackedScene" uid="uid://cnlkvy0jm4xve" path="res://Level/MovingCamera.tscn" id="1_rfo0b"]
-[ext_resource type="PackedScene" uid="uid://b0bjmtfj0cuvg" path="res://Level/borders.tscn" id="2_h77tk"]
 [ext_resource type="PackedScene" uid="uid://cp0r1vciihuun" path="res://Duck/Duck.tscn" id="3_3mc1w"]
 [ext_resource type="Texture2D" uid="uid://cg32ljie2vtj6" path="res://Art/BG_scetch.png" id="4_wkve2"]
 [ext_resource type="PackedScene" uid="uid://c38pirg0c0dr4" path="res://Level/objects/stone.tscn" id="5_q3m5d"]
@@ -10,16 +9,16 @@
 [ext_resource type="PackedScene" uid="uid://bgljblfp4jm2o" path="res://Level/objects/Stone4.tscn" id="8_p03wr"]
 [ext_resource type="PackedScene" uid="uid://ekiafhuxf4gw" path="res://Level/objects/bread.tscn" id="9_e8s8e"]
 [ext_resource type="PackedScene" uid="uid://cd5itpkykdcmn" path="res://Duck/chick.tscn" id="10_j1cq0"]
+[ext_resource type="PackedScene" uid="uid://dwjrjo7g6ae0c" path="res://Level/parallax_background.tscn" id="10_sko4d"]
 
 [node name="Test" type="Node"]
 
 [node name="MovingCamera" parent="." instance=ExtResource("1_rfo0b")]
 position = Vector2(-250, 257)
 ScrollSpeed = 20.0
+AutoScroll = false
 
-[node name="Borders" parent="." instance=ExtResource("2_h77tk")]
-position = Vector2(649, -2)
-rotation = 1.5707964
+[node name="ParallaxBackground" parent="." instance=ExtResource("10_sko4d")]
 
 [node name="CharacterBody2D" parent="." instance=ExtResource("3_3mc1w")]
 position = Vector2(343, 1053)
