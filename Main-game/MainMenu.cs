@@ -7,21 +7,19 @@ public partial class MainMenu : Node2D
 
 	public override void _Ready()
 	{
-		GetNode<Button>("Play").Pressed += OnPlayPressed;
-		GetNode<Button>("Options").Pressed += OnOptionsPressed;
-		GetNode<Button>("Quit").Pressed += OnQuitPressed;
+		GetNode<Button>("VBoxContainer/Play").Pressed += OnPlayPressed;
+		GetNode<Button>("VBoxContainer/Options").Pressed += OnOptionsPressed;
+		GetNode<Button>("VBoxContainer/Quit").Pressed += OnQuitPressed;
 	}
 
 	private void OnPlayPressed()
 	{
 		GD.Print("Switching to Level Select");
-		ChangeScene("res://Levels/Level_select.tscn");
-
+		ChangeScene("res://Main-game/Level_select.tscn");
 	}
 	private void OnOptionsPressed()
 	{
-		GD.Print("Switching to Options menu");
-		ChangeScene("res://Main-game/Options.tscn");
+		GD.Print("Options here");
 	}
 	private void OnQuitPressed()
 	{

@@ -7,19 +7,19 @@ public partial class LevelSelect : Node2D
 	public override void _Ready()
 	{
 		// Hook level buttons
-		GetNode<Button>("GridContainer/TestH").Pressed += () => LoadLevel(1);
-		GetNode<Button>("GridContainer/TestV").Pressed += () => LoadLevel(2);
-		GetNode<Button>("GridContainer/Lake").Pressed += () => LoadLevel(3);
+		GetNode<Button>("Control/GridContainer/TestH").Pressed += () => LoadLevel(1);
+		GetNode<Button>("Control/GridContainer/TestV").Pressed += () => LoadLevel(2);
+		GetNode<Button>("Control/GridContainer/Lake").Pressed += () => LoadLevel(3);
 
 		// Back Button
-		GetNode<Button>("Back").Pressed += OnBackPressed;
+		GetNode<Button>("Control/Back").Pressed += OnBackPressed;
 	}
 
 
 	private void LoadLevel(int levelNumber)
 	{
 		GD.Print($"Loading Level {levelNumber}....");
-		string scenePath = $"res://Scenes/Levels/Level{levelNumber}.tscn";
+		string scenePath = $"res://Level/Level{levelNumber}.tscn";
 		var scene = GD.Load<PackedScene>(scenePath);
 		if (scene != null)
 		{
@@ -32,7 +32,7 @@ public partial class LevelSelect : Node2D
 	}
 	private void OnBackPressed()
 	{
-		ChangeScene("rest://Scenes/Menu/MainMenu.tscn");
+		ChangeScene("res://Main-game/main_menu.tscn");
 	}
 
 	private void ChangeScene(string scenePath)

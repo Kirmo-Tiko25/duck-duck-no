@@ -1,23 +1,31 @@
-[gd_scene load_steps=3 format=3 uid="uid://bpixkaenh04wb"]
+[gd_scene load_steps=2 format=3 uid="uid://bpixkaenh04wb"]
 
 [ext_resource type="PackedScene" uid="uid://dmb7jk3hacck8" path="res://Main-game/main_menu.tscn" id="1_hdpsl"]
-[ext_resource type="PackedScene" uid="uid://bn8u1bdr4snnu" path="res://Main-game/Level_select.tscn" id="2_hdpsl"]
 
 [node name="Main" type="Node"]
+process_mode = 3
 
 [node name="MainMenu" parent="." instance=ExtResource("1_hdpsl")]
+z_index = 80
 
 [node name="UI" type="CanvasLayer" parent="."]
 
 [node name="HUD" type="Control" parent="UI"]
+z_index = 95
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="Levels" type="Node2D" parent="."]
-visible = false
+[node name="Level" type="Node2D" parent="."]
+process_mode = 1
+z_index = 10
 
-[node name="Level_select" parent="Levels" instance=ExtResource("2_hdpsl")]
+[node name="LevelRoot" type="Node2D" parent="Level"]
+
+[node name="EntityRoot" type="Node2D" parent="Level"]
+
+[node name="EffectRoot" type="Node2D" parent="Level"]
 
 [node name="AudioManager" type="Node" parent="."]
+process_mode = 1

@@ -11,7 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://cd5itpkykdcmn" path="res://Duck/chick.tscn" id="10_j1cq0"]
 [ext_resource type="PackedScene" uid="uid://dwjrjo7g6ae0c" path="res://Level/parallax_background.tscn" id="10_sko4d"]
 
-[node name="Test" type="Node"]
+[node name="Test_V" type="Node"]
 
 [node name="MovingCamera" parent="." instance=ExtResource("1_rfo0b")]
 position = Vector2(-250, 257)

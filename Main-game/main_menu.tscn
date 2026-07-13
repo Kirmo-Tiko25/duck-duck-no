@@ -13,30 +13,35 @@ anchors_preset = 13
 anchor_left = 0.5
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = 155.0
-offset_top = 120.0
-offset_right = 480.0
-offset_bottom = 292.0
+offset_left = 135.0
+offset_top = 154.0
+offset_right = 542.0
+offset_bottom = 474.0
 grow_horizontal = 2
 grow_vertical = 2
 alignment = 1
 
 [node name="Title" type="Label" parent="VBoxContainer"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 48
+theme_override_colors/font_color = Color(0.62314075, 0.3754605, 0.16014779, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 60
 text = "Duck Duck No"
 horizontal_alignment = 1
 
 [node name="Play" type="Button" parent="VBoxContainer"]
 layout_mode = 2
+theme_override_font_sizes/font_size = 48
 text = "Play"
 
 [node name="Options" type="Button" parent="VBoxContainer"]
 layout_mode = 2
+theme_override_font_sizes/font_size = 48
 text = "Options"
 
 [node name="Quit" type="Button" parent="VBoxContainer"]
 layout_mode = 2
+theme_override_font_sizes/font_size = 48
 text = "Quit"
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
