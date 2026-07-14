@@ -16,6 +16,10 @@ public partial class MainMenu : Node2D
 	{
 		GD.Print("Switching to Level Select");
 		ChangeScene("res://Main-game/Level_select.tscn");
+
+		// fancy scene load effect
+		//var sceneLoader = GetNode<scene_loader>("/root/scene_loader");
+		//sceneLoader.load_scene("res://Main-game/Level_select.tscn");
 	}
 	private void OnOptionsPressed()
 	{
