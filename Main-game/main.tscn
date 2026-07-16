@@ -1,21 +1,37 @@
-[gd_scene load_steps=2 format=3 uid="uid://bpixkaenh04wb"]
+[gd_scene load_steps=5 format=3 uid="uid://bpixkaenh04wb"]
 
 [ext_resource type="PackedScene" uid="uid://dmb7jk3hacck8" path="res://Main-game/main_menu.tscn" id="1_hdpsl"]
+[ext_resource type="Script" uid="uid://befu84ekfwj4d" path="res://Main-game/Hud.cs" id="2_lyemg"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_qumcm"]
+size = Vector2(20, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lyemg"]
 
 [node name="Main" type="Node"]
 process_mode = 3
 
-[node name="MainMenu" parent="." instance=ExtResource("1_hdpsl")]
-z_index = 80
-
 [node name="UI" type="CanvasLayer" parent="."]
+process_mode = 3
+
+[node name="MainMenu" parent="UI" instance=ExtResource("1_hdpsl")]
+process_mode = 3
 
 [node name="HUD" type="Control" parent="UI"]
-z_index = 95
+process_mode = 3
+z_index = 60
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
+script = ExtResource("2_lyemg")
+
+[node name="PauseButton" type="TouchScreenButton" parent="UI/HUD"]
+z_index = 60
+position = Vector2(324, 0)
+scale = Vector2(5, 5)
+texture_normal = SubResource("PlaceholderTexture2D_qumcm")
+shape = SubResource("RectangleShape2D_lyemg")
 
 [node name="Level" type="Node2D" parent="."]
 process_mode = 1
@@ -29,3 +45,5 @@ z_index = 10
 
 [node name="AudioManager" type="Node" parent="."]
 process_mode = 1
+
+[connection signal="ResumeGame" from="UI/MainMenu" to="UI/HUD" method="OnResumeGame"]

@@ -1,0 +1,38 @@
+[gd_scene load_steps=5 format=3 uid="uid://b2yscqtqg2ool"]
+
+[ext_resource type="Texture2D" uid="uid://qxn3ar1k3u4o" path="res://Art/Sticks/Stick1_NoLeaves.png" id="1_yq848"]
+[ext_resource type="Texture2D" uid="uid://cgqpmf5nlqtbw" path="res://Art/Sticks/Stick1_Leaves.png" id="2_arcyh"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_b0hoc"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_yq848")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_arcyh")
+}],
+"loop": true,
+"name": &"leaves",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_arcyh"]
+
+[node name="Stick1" type="StaticBody2D"]
+z_index = 10
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.5, 0.5)
+sprite_frames = SubResource("SpriteFrames_b0hoc")
+animation = &"leaves"
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+visible = false
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_yq848")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+rotation = 0.5235988
+scale = Vector2(3, 6)
+shape = SubResource("CapsuleShape2D_arcyh")

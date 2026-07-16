@@ -1,5 +1,6 @@
-[gd_scene load_steps=11 format=3 uid="uid://c1ol45ot6wj1"]
+[gd_scene load_steps=12 format=3 uid="uid://c1ol45ot6wj1"]
 
+[ext_resource type="PackedScene" uid="uid://b2yscqtqg2ool" path="res://Level/objects/Stick1.tscn" id="1_7emdk"]
 [ext_resource type="PackedScene" uid="uid://cnlkvy0jm4xve" path="res://Level/MovingCamera.tscn" id="1_rfo0b"]
 [ext_resource type="PackedScene" uid="uid://cp0r1vciihuun" path="res://Duck/Duck.tscn" id="3_3mc1w"]
 [ext_resource type="Texture2D" uid="uid://cg32ljie2vtj6" path="res://Art/BG_scetch.png" id="4_wkve2"]
@@ -12,6 +13,9 @@
 [ext_resource type="PackedScene" uid="uid://dwjrjo7g6ae0c" path="res://Level/parallax_background.tscn" id="10_sko4d"]
 
 [node name="Test_V" type="Node"]
+
+[node name="Stick1" parent="." instance=ExtResource("1_7emdk")]
+position = Vector2(265, 236)
 
 [node name="MovingCamera" parent="." instance=ExtResource("1_rfo0b")]
 position = Vector2(-250, 257)

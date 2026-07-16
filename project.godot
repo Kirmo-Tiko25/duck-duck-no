@@ -15,10 +15,6 @@ run/main_scene="uid://bpixkaenh04wb"
 config/features=PackedStringArray("4.5", "C#", "Mobile")
 config/icon="res://icon.svg"
 
-[autoload]
-
-scene_loader="*res://Main-game/scene_loader.gd"
-
 [display]
 
 window/size/viewport_width=648
@@ -33,6 +29,10 @@ project/assembly_name="Duck-game"
 [global_group]
 
 duck=""
+
+[input_devices]
+
+pointing/emulate_touch_from_mouse=true
 
 [physics]
 

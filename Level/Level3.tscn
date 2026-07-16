@@ -1,49 +1,48 @@
-[gd_scene load_steps=10 format=3 uid="uid://dbt4l1k5pq7om"]
+[gd_scene load_steps=11 format=3 uid="uid://c1q6acyi06500"]
 
-[ext_resource type="PackedScene" uid="uid://cp0r1vciihuun" path="res://Duck/Duck.tscn" id="1_3k6pt"]
-[ext_resource type="PackedScene" uid="uid://cnlkvy0jm4xve" path="res://Level/MovingCamera.tscn" id="1_u64x0"]
-[ext_resource type="PackedScene" uid="uid://dwjrjo7g6ae0c" path="res://Level/parallax_background.tscn" id="2_ggd8k"]
-[ext_resource type="PackedScene" uid="uid://ekiafhuxf4gw" path="res://Level/objects/bread.tscn" id="3_i6guw"]
-[ext_resource type="PackedScene" uid="uid://c38pirg0c0dr4" path="res://Level/objects/stone.tscn" id="4_ctfao"]
-[ext_resource type="PackedScene" uid="uid://2vclwnntgvlt" path="res://Level/objects/stone2.tscn" id="5_q083c"]
-[ext_resource type="PackedScene" uid="uid://c0f2cod6klnb6" path="res://Level/objects/Stone3.tscn" id="6_pvxvs"]
-[ext_resource type="PackedScene" uid="uid://bgljblfp4jm2o" path="res://Level/objects/Stone4.tscn" id="7_sqh17"]
-[ext_resource type="PackedScene" uid="uid://cd5itpkykdcmn" path="res://Duck/chick.tscn" id="9_7wljj"]
+[ext_resource type="PackedScene" uid="uid://cnlkvy0jm4xve" path="res://Level/MovingCamera.tscn" id="1_4y3vx"]
+[ext_resource type="PackedScene" uid="uid://cp0r1vciihuun" path="res://Duck/Duck.tscn" id="1_bt7lf"]
+[ext_resource type="Texture2D" uid="uid://cg32ljie2vtj6" path="res://Art/BG_scetch.png" id="2_ndeqo"]
+[ext_resource type="PackedScene" uid="uid://c38pirg0c0dr4" path="res://Level/objects/stone.tscn" id="3_4y3vx"]
+[ext_resource type="PackedScene" uid="uid://2vclwnntgvlt" path="res://Level/objects/stone2.tscn" id="4_381eo"]
+[ext_resource type="PackedScene" uid="uid://c0f2cod6klnb6" path="res://Level/objects/Stone3.tscn" id="5_d204d"]
+[ext_resource type="PackedScene" uid="uid://bgljblfp4jm2o" path="res://Level/objects/Stone4.tscn" id="6_jc4vw"]
+[ext_resource type="PackedScene" uid="uid://ekiafhuxf4gw" path="res://Level/objects/bread.tscn" id="9_381eo"]
+[ext_resource type="PackedScene" uid="uid://cd5itpkykdcmn" path="res://Duck/chick.tscn" id="10_d204d"]
+[ext_resource type="PackedScene" uid="uid://dwjrjo7g6ae0c" path="res://Level/parallax_background.tscn" id="10_fpet4"]
 
-[node name="LakeLevel" type="Node2D"]
+[node name="Test" type="Node"]
 
-[node name="MovingCamera" parent="." instance=ExtResource("1_u64x0")]
-position = Vector2(-155, 334)
+[node name="MovingCamera" parent="." instance=ExtResource("1_4y3vx")]
+ScrollSpeed = 20.0
 
-[node name="ParallaxBackground" parent="." instance=ExtResource("2_ggd8k")]
+[node name="CharacterBody2D" parent="." instance=ExtResource("1_bt7lf")]
+position = Vector2(537, 508)
 
-[node name="Duck" parent="." instance=ExtResource("1_3k6pt")]
-position = Vector2(376, 993)
+[node name="water" type="Sprite2D" parent="."]
+position = Vector2(576, 348)
+rotation = 1.5707964
+scale = Vector2(1.7, 1.7)
+texture = ExtResource("2_ndeqo")
 
-[node name="Obstacles" type="TileMapLayer" parent="."]
+[node name="Stone" parent="." instance=ExtResource("3_4y3vx")]
+position = Vector2(282, 431)
 
-[node name="Bread" parent="Obstacles" instance=ExtResource("3_i6guw")]
-position = Vector2(715, 429)
+[node name="Stone2" parent="." instance=ExtResource("4_381eo")]
+position = Vector2(645, 315)
 
-[node name="Stone" parent="Obstacles" instance=ExtResource("4_ctfao")]
-position = Vector2(913, -110)
+[node name="Stone3" parent="." instance=ExtResource("5_d204d")]
+position = Vector2(228, 91)
 
-[node name="Stone2" parent="Obstacles" instance=ExtResource("5_q083c")]
-position = Vector2(886, 527)
+[node name="Stone4" parent="." instance=ExtResource("6_jc4vw")]
+position = Vector2(892, 96)
 
-[node name="Stone3" parent="Obstacles" instance=ExtResource("6_pvxvs")]
-position = Vector2(191, 588)
+[node name="Bread" parent="." instance=ExtResource("9_381eo")]
+position = Vector2(400, 272)
 
-[node name="Stone4" parent="Obstacles" instance=ExtResource("7_sqh17")]
-position = Vector2(1399, 251)
+[node name="Chick" parent="." instance=ExtResource("10_d204d")]
+position = Vector2(725, 214)
 
-[node name="Entities" type="Node2D" parent="."]
-
-[node name="Chick" parent="Entities" instance=ExtResource("9_7wljj")]
-position = Vector2(861, -215)
-
-[node name="Chick2" parent="Entities" instance=ExtResource("9_7wljj")]
-position = Vector2(1428, 182)
-
-[node name="Chick3" parent="Entities" instance=ExtResource("9_7wljj")]
-position = Vector2(118, 514)
+[node name="ParallaxBackground" parent="." instance=ExtResource("10_fpet4")]
+offset = Vector2(200, 0)
+transform = Transform2D(1, 0, 0, 1, 200, 0)
