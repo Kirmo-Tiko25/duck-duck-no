@@ -15,8 +15,8 @@ public partial class MainMenu : Node2D
 
 		// Hook level buttons
 		GetNode<Button>("VBoxContainer/LevelSelect/Lake").Pressed += () => LoadLevel(1);
-		GetNode<Button>("VBoxContainer/LevelSelect/Test_H").Pressed += () => LoadLevel(3);
-		GetNode<Button>("VBoxContainer/LevelSelect/Test_V").Pressed += () => LoadLevel(2);
+		GetNode<Button>("VBoxContainer/LevelSelect/River").Pressed += () => LoadLevel(2);
+		GetNode<Button>("VBoxContainer/LevelSelect/Test_V").Pressed += () => LoadLevel(3);
 	}
 
 	private void OnLevelPressed()

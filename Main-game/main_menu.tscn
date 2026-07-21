@@ -54,12 +54,12 @@ layout_mode = 2
 theme = ExtResource("2_l65cs")
 text = "LAKE"
 
-[node name="Test_V" type="Button" parent="VBoxContainer/LevelSelect"]
+[node name="River" type="Button" parent="VBoxContainer/LevelSelect"]
 layout_mode = 2
 theme = ExtResource("2_l65cs")
-text = "Test_V"
+text = "River"
 
-[node name="Test_H" type="Button" parent="VBoxContainer/LevelSelect"]
+[node name="Test_V" type="Button" parent="VBoxContainer/LevelSelect"]
 layout_mode = 2
 theme = ExtResource("2_l65cs")
 text = "Test_H"
