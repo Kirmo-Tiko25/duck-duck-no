@@ -1,21 +1,17 @@
-[gd_scene load_steps=10 format=3 uid="uid://dbt4l1k5pq7om"]
+[gd_scene load_steps=11 format=3 uid="uid://dbt4l1k5pq7om"]
 
-[ext_resource type="PackedScene" uid="uid://cnlkvy0jm4xve" path="res://Level/MovingCamera.tscn" id="1_4y3vx"]
 [ext_resource type="PackedScene" uid="uid://cp0r1vciihuun" path="res://Duck/Duck.tscn" id="1_bt7lf"]
 [ext_resource type="PackedScene" uid="uid://c38pirg0c0dr4" path="res://Level/objects/stone.tscn" id="3_4y3vx"]
 [ext_resource type="PackedScene" uid="uid://2vclwnntgvlt" path="res://Level/objects/stone2.tscn" id="4_381eo"]
 [ext_resource type="PackedScene" uid="uid://c0f2cod6klnb6" path="res://Level/objects/Stone3.tscn" id="5_d204d"]
 [ext_resource type="PackedScene" uid="uid://bgljblfp4jm2o" path="res://Level/objects/Stone4.tscn" id="6_jc4vw"]
+[ext_resource type="PackedScene" uid="uid://blw4j2ndrtadv" path="res://Level/Lake/wave.tscn" id="7_di76u"]
 [ext_resource type="PackedScene" uid="uid://ekiafhuxf4gw" path="res://Level/objects/bread.tscn" id="9_381eo"]
+[ext_resource type="PackedScene" uid="uid://mm8ypo6tx5dk" path="res://Level/land/straight_border.tscn" id="10_d5det"]
 [ext_resource type="PackedScene" uid="uid://cd5itpkykdcmn" path="res://Duck/chick.tscn" id="10_d204d"]
-[ext_resource type="PackedScene" uid="uid://dwjrjo7g6ae0c" path="res://Level/parallax_background.tscn" id="10_fpet4"]
+[ext_resource type="PackedScene" uid="uid://oe7afcn7fflt" path="res://Level/land/curved_border.tscn" id="11_q3rjx"]
 
 [node name="LakeLevel" type="Node2D"]
-
-[node name="MovingCamera" parent="." instance=ExtResource("1_4y3vx")]
-position = Vector2(-155, 334)
-
-[node name="ParallaxBackground" parent="." instance=ExtResource("10_fpet4")]
 
 [node name="Duck" parent="." instance=ExtResource("1_bt7lf")]
 position = Vector2(376, 993)
@@ -23,19 +19,24 @@ position = Vector2(376, 993)
 [node name="Obstacles" type="TileMapLayer" parent="."]
 
 [node name="Bread" parent="Obstacles" instance=ExtResource("9_381eo")]
-position = Vector2(715, 429)
+z_index = 6
+position = Vector2(1666, 674)
 
 [node name="Stone" parent="Obstacles" instance=ExtResource("3_4y3vx")]
 position = Vector2(913, -110)
 
 [node name="Stone2" parent="Obstacles" instance=ExtResource("4_381eo")]
-position = Vector2(886, 527)
+position = Vector2(-27, 226)
 
 [node name="Stone3" parent="Obstacles" instance=ExtResource("5_d204d")]
-position = Vector2(191, 588)
+position = Vector2(166, 133)
 
 [node name="Stone4" parent="Obstacles" instance=ExtResource("6_jc4vw")]
 position = Vector2(1399, 251)
+
+[node name="wave" parent="Obstacles" instance=ExtResource("7_di76u")]
+position = Vector2(626, -243)
+scale = Vector2(2, 2)
 
 [node name="Entities" type="Node2D" parent="."]
 
@@ -46,4 +47,36 @@ position = Vector2(861, -215)
 position = Vector2(1428, 182)
 
 [node name="Chick3" parent="Entities" instance=ExtResource("10_d204d")]
-position = Vector2(118, 514)
+position = Vector2(90, 71)
+
+[node name="Land" type="Node2D" parent="."]
+
+[node name="CurvedBorder" parent="Land" instance=ExtResource("11_q3rjx")]
+position = Vector2(-522, 356)
+rotation = 3.1415927
+
+[node name="CurvedBorder2" parent="Land" instance=ExtResource("11_q3rjx")]
+z_index = 1
+position = Vector2(1674, 1415)
+
+[node name="CurvedBorder3" parent="Land" instance=ExtResource("11_q3rjx")]
+position = Vector2(86, 2004)
+rotation = 1.5707964
+
+[node name="CurvedBorder4" parent="Land" instance=ExtResource("11_q3rjx")]
+position = Vector2(-524, 1356)
+rotation = 3.1415927
+
+[node name="straight_border" parent="Land" instance=ExtResource("10_d5det")]
+position = Vector2(1674, 418)
+
+[node name="straight_border2" parent="Land" instance=ExtResource("10_d5det")]
+position = Vector2(1084, 2010)
+rotation = 1.5707964
+
+[node name="straight_border3" parent="Land" instance=ExtResource("10_d5det")]
+position = Vector2(111, -259)
+rotation = 4.712389
+
+[node name="straight_border4" parent="Land" instance=ExtResource("10_d5det")]
+position = Vector2(1674, -572)

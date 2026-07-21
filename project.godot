@@ -29,10 +29,16 @@ project/assembly_name="Duck-game"
 [global_group]
 
 duck=""
+ground=""
 
 [input_devices]
 
 pointing/emulate_touch_from_mouse=true
+
+[layer_names]
+
+2d_physics/layer_1="collision"
+2d_physics/layer_2="land"
 
 [physics]
 
@@ -41,3 +47,4 @@ pointing/emulate_touch_from_mouse=true
 [rendering]
 
 renderer/rendering_method="mobile"
+environment/defaults/default_clear_color=Color(0.49019608, 0.83137256, 0.9098039, 1)

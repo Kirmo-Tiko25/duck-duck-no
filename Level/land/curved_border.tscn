@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://oe7afcn7fflt"]
+
+[ext_resource type="Texture2D" uid="uid://cnh3wad105hm5" path="res://Art/BorderAssets/CurvedBorder.png" id="1_t8kwq"]
+
+[node name="CurvedBorder" type="Sprite2D" groups=["ground"]]
+texture = ExtResource("1_t8kwq")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." groups=["ground"]]
+collision_layer = 2
+collision_mask = 0
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
+polygon = PackedVector2Array(-150, -500, 150, -500, 150, 500, -150, 500, -79, 278, -106, 97, -46, -116, -55, -407)

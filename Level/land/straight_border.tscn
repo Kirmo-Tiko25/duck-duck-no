@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://mm8ypo6tx5dk"]
+
+[ext_resource type="Texture2D" uid="uid://djb8m2oevag40" path="res://Art/BorderAssets/StraightBorder.png" id="1_f7a16"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_e7fgc"]
+size = Vector2(301, 1000)
+
+[node name="straight_border" type="StaticBody2D" groups=["ground"]]
+collision_layer = 2
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_e7fgc")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_f7a16")
