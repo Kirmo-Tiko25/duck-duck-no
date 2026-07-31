@@ -1,0 +1,16 @@
+[gd_scene load_steps=2 format=3 uid="uid://ccdvcays3w3gl"]
+
+[ext_resource type="Texture2D" uid="uid://dqa6bjpujcb7e" path="res://Art/PondLevelBG.png" id="1_8kghb"]
+
+[node name="Pond" type="Sprite2D"]
+z_index = 1
+texture = ExtResource("1_8kghb")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." groups=["ground"]]
+z_index = 1
+collision_layer = 2
+collision_mask = 0
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D" groups=["ground"]]
+visible = false
+polygon = PackedVector2Array(736, -1660, 1698, -1691, 1694, 1697, -1692, 1700, -1692, -1693, 244, -1691, 176, -1087, -421, -1186, -1031, -1054, -1010, -426, -992, 1065, -338, 1266, -46, 1127, 1084, 1160, 1145, 1018, 989, 761, 956, 166, 1114, -178, 968, -518, 1059, -957, 687, -1132)

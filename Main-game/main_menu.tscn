@@ -1,24 +1,25 @@
-[gd_scene load_steps=4 format=3 uid="uid://dmb7jk3hacck8"]
+[gd_scene load_steps=5 format=3 uid="uid://dmb7jk3hacck8"]
 
 [ext_resource type="Script" uid="uid://c568yxe3cc620" path="res://Main-game/MainMenu.cs" id="1_23dty"]
 [ext_resource type="Texture2D" uid="uid://cg32ljie2vtj6" path="res://Art/BG_scetch.png" id="1_g41ml"]
 [ext_resource type="Theme" uid="uid://beq7jw4r1gmod" path="res://Main-game/assets/main_menu.tres" id="2_l65cs"]
+[ext_resource type="AudioStream" uid="uid://d1q0uosd0j5k0" path="res://Sounds/791152__mari0411__quack.mp3" id="4_rpy0d"]
 
 [node name="MainMenu" type="Node2D"]
-z_index = 90
+z_index = 88
 script = ExtResource("1_23dty")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
-z_index = 90
+z_index = 88
 custom_minimum_size = Vector2(100, 100)
 anchors_preset = 13
 anchor_left = 0.5
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = 135.0
-offset_top = 154.0
-offset_right = 542.0
-offset_bottom = 474.0
+offset_left = 129.0
+offset_top = 145.0
+offset_right = 548.0
+offset_bottom = 623.0
 grow_horizontal = 2
 grow_vertical = 2
 alignment = 1
@@ -70,7 +71,7 @@ theme_override_font_sizes/font_size = 48
 text = "Quit"
 
 [node name="RichTextLabel" type="RichTextLabel" parent="."]
-z_index = 90
+z_index = 88
 offset_left = 6.0
 offset_top = 730.0
 offset_right = 691.0
@@ -80,7 +81,10 @@ theme_override_font_sizes/normal_font_size = 40
 text = "We could add duck Selection here, if we have different models."
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-z_index = 88
+z_index = 80
 position = Vector2(341, 556)
 scale = Vector2(1.8, 1.8)
 texture = ExtResource("1_g41ml")
+
+[node name="Quack" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_rpy0d")

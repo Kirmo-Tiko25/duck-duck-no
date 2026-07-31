@@ -1,0 +1,32 @@
+[gd_scene load_steps=4 format=3 uid="uid://cc3y4e4q4tl3d"]
+
+[ext_resource type="Texture2D" uid="uid://b1nxm1g5ruumk" path="res://Art/RiverLevelArt/Bridge.png" id="1_ox476"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ilo24"]
+size = Vector2(500, 30)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_871gd"]
+size = Vector2(600, 150)
+
+[node name="Bridge" type="StaticBody2D" groups=["bridge"]]
+z_index = 50
+collision_layer = 64
+collision_mask = 0
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_ox476")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 85)
+shape = SubResource("RectangleShape2D_ilo24")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
+position = Vector2(0, -85)
+shape = SubResource("RectangleShape2D_ilo24")
+
+[node name="Area2D" type="Area2D" parent="." groups=["bridge"]]
+collision_layer = 32
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_871gd")

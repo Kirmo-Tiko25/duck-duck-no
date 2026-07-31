@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=3 uid="uid://bw7pjof3myd1m"]
+
+[ext_resource type="Texture2D" uid="uid://bwxfxypo8gl7f" path="res://Art/RiverLevelArt/LandAssetV2_Grass.png" id="1_6y6c5"]
+
+[node name="Area2D" type="StaticBody2D" groups=["ground"]]
+z_index = 2
+collision_layer = 2
+collision_mask = 0
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_6y6c5")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+visible = false
+polygon = PackedVector2Array(-54, -444, 55, -430, 178, -442, 396, -332, 454, -258, 438, -60, 405, 31, 266, 238, 226, 377, 165, 431, 68, 426, -38, 442, -127, 364, -227, 376, -342, 314, -459, 155, -408, 10, -428, -111, -340, -297, -273, -364)

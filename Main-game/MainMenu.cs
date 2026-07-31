@@ -1,9 +1,11 @@
 using Godot;
 using System;
+using System.ComponentModel;
 
 public partial class MainMenu : Node2D
 {
 	[Signal] public delegate void ResumeGameEventHandler();
+	[Export] private AudioStreamPlayer quack { get; set; }
 	public override void _Ready()
 	{
 		GetNode<Button>("VBoxContainer/Continue").Visible = false;
@@ -17,6 +19,8 @@ public partial class MainMenu : Node2D
 		GetNode<Button>("VBoxContainer/LevelSelect/Lake").Pressed += () => LoadLevel(1);
 		GetNode<Button>("VBoxContainer/LevelSelect/River").Pressed += () => LoadLevel(2);
 		GetNode<Button>("VBoxContainer/LevelSelect/Test_V").Pressed += () => LoadLevel(3);
+
+		quack = GetNode<AudioStreamPlayer>("Quack");
 	}
 
 	private void OnLevelPressed()
@@ -31,6 +35,7 @@ public partial class MainMenu : Node2D
 	private void OnContinuePressed()
 	{
 		GD.Print("Continue");
+		quack.Play();
 		// Emits signal to resume
 		EmitSignal(nameof(ResumeGame));
 		this.Visible = false;
@@ -73,7 +78,7 @@ public partial class MainMenu : Node2D
 	{
 		GD.Print("Have Fun!");
 		LoadLevel(1);
-
+		quack.Play();
 	}
 
 	private void OnQuitPressed()

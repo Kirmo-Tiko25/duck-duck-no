@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://c38pirg0c0dr4"]
 
-[ext_resource type="Texture2D" uid="uid://cbuwdjiglxwl8" path="res://Art/RockAssets/Rock_1.png" id="1_u2smq"]
+[ext_resource type="Texture2D" uid="uid://scqu81ihkqvv" path="res://Art/NatureElementsFinal/Rock1.png" id="1_kvdre"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_u2smq"]
 radius = 48.9668
@@ -10,8 +10,7 @@ height = 179.99911
 z_index = 5
 
 [node name="Stone-sprite" type="Sprite2D" parent="."]
-scale = Vector2(0.05, 0.05)
-texture = ExtResource("1_u2smq")
+texture = ExtResource("1_kvdre")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 z_index = 10

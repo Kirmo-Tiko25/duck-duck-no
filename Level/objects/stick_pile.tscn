@@ -1,0 +1,45 @@
+[gd_scene load_steps=6 format=3 uid="uid://ii6ym3ydx1pn"]
+
+[ext_resource type="Texture2D" uid="uid://cqa7qylvme6ax" path="res://Art/Sticks/StickPile_Leaves.png" id="1_m4r41"]
+[ext_resource type="Texture2D" uid="uid://jgjwfgdcaqdj" path="res://Art/Sticks/StickPile_NoLeaves.png" id="2_mlmuq"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_m4r41"]
+friction = 0.4
+bounce = 0.6
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_rng60"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_m4r41")
+}],
+"loop": true,
+"name": &"leaves",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_mlmuq")
+}],
+"loop": true,
+"name": &"stick",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_phyo4"]
+radius = 34.76386
+height = 277.75476
+
+[node name="StickPile" type="StaticBody2D"]
+collision_layer = 4
+collision_mask = 4
+physics_material_override = SubResource("PhysicsMaterial_m4r41")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_rng60")
+animation = &"stick"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-7, 2)
+rotation = 1.6165581
+shape = SubResource("CapsuleShape2D_phyo4")

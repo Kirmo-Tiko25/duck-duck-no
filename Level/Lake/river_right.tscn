@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://badc7e8hmyivv"]
+
+[ext_resource type="Texture2D" uid="uid://bje86bxq372kv" path="res://Art/RiverLevelArt/River_TurnRight.png" id="1_ir3yk"]
+
+[node name="RiverRight" type="Sprite2D"]
+texture = ExtResource("1_ir3yk")

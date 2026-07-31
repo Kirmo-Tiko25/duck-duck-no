@@ -13,13 +13,13 @@ config_version=5
 config/name="Duck-game"
 run/main_scene="uid://bpixkaenh04wb"
 config/features=PackedStringArray("4.5", "C#", "Mobile")
-config/icon="res://icon.svg"
+boot_splash/bg_color=Color(0.10408481, 0.108385555, 0.11022247, 1)
+config/icon="res://trash/icon.svg"
 
 [display]
 
 window/size/viewport_width=648
 window/size/viewport_height=1152
-window/size/mode=3
 window/stretch/mode="viewport"
 window/handheld/orientation=1
 
@@ -31,6 +31,9 @@ project/assembly_name="Duck-game"
 
 duck=""
 ground=""
+river=""
+chick=""
+bridge=""
 
 [input_devices]
 
@@ -40,12 +43,18 @@ pointing/emulate_touch_from_mouse=true
 
 2d_physics/layer_1="collision"
 2d_physics/layer_2="land"
+2d_physics/layer_3="stick"
+2d_physics/layer_4="chickStone"
+2d_physics/layer_5="river"
+2d_physics/layer_6="bridge"
+2d_physics/layer_7="bridge sides"
 
 [physics]
 
+2d/default_gravity=300.0
 2d/default_gravity_vector=Vector2(0, 0)
 
 [rendering]
 
 renderer/rendering_method="mobile"
-environment/defaults/default_clear_color=Color(0.49019608, 0.83137256, 0.9098039, 1)
+environment/defaults/default_clear_color=Color(0, 0, 0, 1)

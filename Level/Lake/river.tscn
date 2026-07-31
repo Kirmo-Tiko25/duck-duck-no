@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://dmssvvvkq53vl"]
+
+[ext_resource type="Script" uid="uid://dkdmnpmo8cixd" path="res://Level/Lake/River.cs" id="1_ewhm3"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_asl1n"]
+size = Vector2(500, 100)
+
+[node name="River" type="Area2D" groups=["river"]]
+collision_layer = 16
+collision_mask = 16
+gravity_space_override = 1
+gravity_point_center = Vector2(1, 0)
+gravity_direction = Vector2(1, 0)
+gravity = 300.0
+script = ExtResource("1_ewhm3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_asl1n")

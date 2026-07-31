@@ -1,15 +1,73 @@
-[gd_scene load_steps=5 format=3 uid="uid://bpixkaenh04wb"]
+[gd_scene load_steps=11 format=3 uid="uid://bpixkaenh04wb"]
 
+[ext_resource type="Script" uid="uid://ddodgd2gnkdt" path="res://Main-game/Main.cs" id="1_b58kh"]
 [ext_resource type="PackedScene" uid="uid://dmb7jk3hacck8" path="res://Main-game/main_menu.tscn" id="1_hdpsl"]
 [ext_resource type="Script" uid="uid://befu84ekfwj4d" path="res://Main-game/Hud.cs" id="2_lyemg"]
-
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_qumcm"]
-size = Vector2(20, 20)
+[ext_resource type="Texture2D" uid="uid://cutcausyrsci2" path="res://Art/UIButtons/PauseButton.png" id="4_b58kh"]
+[ext_resource type="Texture2D" uid="uid://c2yj282mhf3wb" path="res://Art/UIButtons/PlayButton.png" id="5_0xh18"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lyemg"]
+size = Vector2(50, 50)
 
-[node name="Main" type="Node"]
+[sub_resource type="Animation" id="Animation_hdpsl"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_b58kh"]
+resource_name = "FadeOut"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_lyemg"]
+resource_name = "fade"
+step = 1.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_b58kh"]
+_data = {
+&"FadeIn": SubResource("Animation_lyemg"),
+&"FadeOut": SubResource("Animation_b58kh"),
+&"RESET": SubResource("Animation_hdpsl")
+}
+
+[node name="Main" type="Node" node_paths=PackedStringArray("LevelRoot", "Fader", "SceneTransitionTimer")]
 process_mode = 3
+script = ExtResource("1_b58kh")
+LevelRoot = NodePath("Level/LevelRoot")
+Fader = NodePath("Level/Fade/AnimationPlayer")
+SceneTransitionTimer = NodePath("Level/SceneTransitionTimer")
 
 [node name="UI" type="CanvasLayer" parent="."]
 process_mode = 3
@@ -19,18 +77,21 @@ process_mode = 3
 
 [node name="HUD" type="Control" parent="UI"]
 process_mode = 3
-z_index = 60
+z_index = 80
 layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_right = -20.0
+grow_horizontal = 2
 script = ExtResource("2_lyemg")
 
 [node name="PauseButton" type="TouchScreenButton" parent="UI/HUD"]
-z_index = 60
-position = Vector2(324, 0)
-scale = Vector2(5, 5)
-texture_normal = SubResource("PlaceholderTexture2D_qumcm")
+z_index = 80
+position = Vector2(-33, 0)
+texture_normal = ExtResource("4_b58kh")
+texture_pressed = ExtResource("5_0xh18")
 shape = SubResource("RectangleShape2D_lyemg")
 
 [node name="Level" type="Node2D" parent="."]
@@ -38,12 +99,36 @@ process_mode = 1
 z_index = 10
 
 [node name="LevelRoot" type="Node2D" parent="Level"]
+y_sort_enabled = true
 
 [node name="EntityRoot" type="Node2D" parent="Level"]
 
 [node name="EffectRoot" type="Node2D" parent="Level"]
 
+[node name="SceneTransitionTimer" type="Timer" parent="Level"]
+wait_time = 0.5
+one_shot = true
+
+[node name="Fade" type="CanvasLayer" parent="Level"]
+layer = 9
+
+[node name="ColorRect" type="ColorRect" parent="Level/Fade"]
+modulate = Color(1, 1, 1, 0)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Level/Fade"]
+libraries = {
+&"": SubResource("AnimationLibrary_b58kh")
+}
+
 [node name="AudioManager" type="Node" parent="."]
 process_mode = 1
 
 [connection signal="ResumeGame" from="UI/MainMenu" to="UI/HUD" method="OnResumeGame"]
+[connection signal="timeout" from="Level/SceneTransitionTimer" to="." method="OnFadeTimeout"]

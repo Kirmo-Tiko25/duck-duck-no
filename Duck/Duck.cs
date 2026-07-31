@@ -2,6 +2,7 @@ using Godot;
 using System;
 using System.IO.IsolatedStorage;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text.RegularExpressions;
 
 public partial class Duck : CharacterBody2D
@@ -15,6 +16,8 @@ public partial class Duck : CharacterBody2D
 	// Area2D detector
 	private Area2D _landDetector;
 	private bool isOnLand = false;
+	private bool isinRiver = false;
+	public Vector2 RiverVelocity = Vector2.Zero;
 
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
@@ -31,7 +34,6 @@ public partial class Duck : CharacterBody2D
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
 	public override void _PhysicsProcess(double delta)
 	{
-		float floatDelta = (float)delta;
 
 		// Rotation
 		float rotationDirection = 0.0f;
@@ -45,29 +47,38 @@ public partial class Duck : CharacterBody2D
 		}
 
 		// overtime rotate
-		Rotation += rotationDirection * RotationSpeed * floatDelta;
+		Rotation += rotationDirection * RotationSpeed * (float)delta;
 
 		// move foreward
-		Vector2 velocity = Vector2.Zero;
+		Vector2 _imputVelocity = Vector2.Zero;
+
 		if (Input.IsActionPressed("ui_up"))
 		{
 			// Vector2.Up rotated by our current rotation (Up default)
-			velocity = Vector2.Up.Rotated(Rotation) * currentSpeed;
+			_imputVelocity = Vector2.Up.Rotated(Rotation) * currentSpeed;
 		}
 
 		// move back
 		if (Input.IsActionPressed("ui_down"))
 		{
 			// Vector2.Up rotated by our current rotation (Up default)
-			velocity = Vector2.Down.Rotated(Rotation) * currentSpeed / 3;
+			_imputVelocity = Vector2.Down.Rotated(Rotation) * currentSpeed / 3;
 		}
-		// apply velcoity to move
-		Velocity = velocity;
+		// check if in river
+		Vector2 riverVelocity = Vector2.Zero;
+		if (isinRiver)
+		{
+			riverVelocity = RiverVelocity;
+		}
+
+		// combine player and enviroment velocity
+		Velocity = _imputVelocity + RiverVelocity;
+
 		MoveAndSlide();
 
 		//Animations
 		var animatedSprite2D = GetNode<AnimatedSprite2D>("AnimatedSprite2D");
-		if (velocity.Length() > 0)
+		if (_imputVelocity.Length() > 0)
 		{
 			if (isOnLand)
 			{
@@ -112,6 +123,27 @@ public partial class Duck : CharacterBody2D
 			isOnLand = true;
 			currentSpeed = LandSpeed;
 			GD.Print("Duck Landed");
+			SetCollisionLayerValue(5, false);
+		}
+		// Only reacts if entered body is part of river
+		else if (body.IsInGroup("river"))
+		{
+			if (!isOnLand)
+			{
+				isinRiver = true;
+				GD.Print("Duck in flowing river");
+			}
+
+		}
+		// Only reacts if entered body is part of bridge
+		else if (body.IsInGroup("bridge"))
+		{
+			if (isOnLand)
+			{
+				SetCollisionLayerValue(7, true);
+				GD.Print("Duck on bridge");
+			}
+
 		}
 	}
 
@@ -138,14 +170,43 @@ public partial class Duck : CharacterBody2D
 			{
 				isOnLand = false;
 				currentSpeed = WaterSpeed;
+				SetCollisionLayerValue(5, true);
 				GD.Print("Duck left land, back to swimming");
+			}
+		}
+		// IF exited land check if other land is in contact
+		else if (body.IsInGroup("river"))
+		{
+			// Only switch back to water if no land body contact
+			var GetOverlappingBodies = _landDetector.GetOverlappingBodies();
+			bool stillOnRiver = false;
+
+			foreach (Node2D b in GetOverlappingBodies)
+			{
+				if (b.IsInGroup("river"))
+				{
+					stillOnRiver = true;
+					break;
+				}
+			}
+
+
+			if (!stillOnRiver)
+			{
+				isinRiver = false;
+				currentSpeed = WaterSpeed;
+				GD.Print("Duck left river");
+			}
+		}
+		// IF exited bridge
+		else if (body.IsInGroup("bridge"))
+		{
+			if (isOnLand)
+			{
+				SetCollisionLayerValue(7, false);
+				GD.Print("Duck left bridge");
 			}
 		}
 	}
 
-	// method that checks if duck is in water
-	public bool IsInWater()
-	{
-		return !isOnLand;
-	}
 }

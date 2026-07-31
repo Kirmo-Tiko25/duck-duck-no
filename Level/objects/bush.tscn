@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://xq42og7e3dlv"]
+
+[ext_resource type="Texture2D" uid="uid://clpytlx45cclh" path="res://Art/NatureElementsFinal/Bush.png" id="1_cg5sd"]
+
+[node name="Bush" type="Sprite2D"]
+z_index = 20
+y_sort_enabled = true
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_cg5sd")
+offset = Vector2(0, -70)

@@ -1,82 +1,280 @@
-[gd_scene load_steps=11 format=3 uid="uid://dbt4l1k5pq7om"]
+[gd_scene load_steps=27 format=3 uid="uid://dbt4l1k5pq7om"]
 
 [ext_resource type="PackedScene" uid="uid://cp0r1vciihuun" path="res://Duck/Duck.tscn" id="1_bt7lf"]
 [ext_resource type="PackedScene" uid="uid://c38pirg0c0dr4" path="res://Level/objects/stone.tscn" id="3_4y3vx"]
 [ext_resource type="PackedScene" uid="uid://2vclwnntgvlt" path="res://Level/objects/stone2.tscn" id="4_381eo"]
-[ext_resource type="PackedScene" uid="uid://c0f2cod6klnb6" path="res://Level/objects/Stone3.tscn" id="5_d204d"]
-[ext_resource type="PackedScene" uid="uid://bgljblfp4jm2o" path="res://Level/objects/Stone4.tscn" id="6_jc4vw"]
+[ext_resource type="PackedScene" uid="uid://ii6ym3ydx1pn" path="res://Level/objects/stick_pile.tscn" id="4_q3rjx"]
+[ext_resource type="PackedScene" uid="uid://b2yscqtqg2ool" path="res://Level/objects/Stick1.tscn" id="5_jayqs"]
+[ext_resource type="PackedScene" uid="uid://cgqyc0mbgbapv" path="res://Level/objects/stick_3.tscn" id="7_an3c4"]
 [ext_resource type="PackedScene" uid="uid://blw4j2ndrtadv" path="res://Level/Lake/wave.tscn" id="7_di76u"]
+[ext_resource type="PackedScene" uid="uid://dn04npbc4cjxr" path="res://Level/objects/tree_2.tscn" id="8_6ds1n"]
+[ext_resource type="PackedScene" uid="uid://cpr7ka7putuaj" path="res://Level/objects/stick_2.tscn" id="8_d5det"]
 [ext_resource type="PackedScene" uid="uid://ekiafhuxf4gw" path="res://Level/objects/bread.tscn" id="9_381eo"]
-[ext_resource type="PackedScene" uid="uid://mm8ypo6tx5dk" path="res://Level/land/straight_border.tscn" id="10_d5det"]
-[ext_resource type="PackedScene" uid="uid://cd5itpkykdcmn" path="res://Duck/chick.tscn" id="10_d204d"]
-[ext_resource type="PackedScene" uid="uid://oe7afcn7fflt" path="res://Level/land/curved_border.tscn" id="11_q3rjx"]
+[ext_resource type="PackedScene" uid="uid://oquf3o7gcpfy" path="res://Level/land/land_round.tscn" id="10_6ds1n"]
+[ext_resource type="PackedScene" uid="uid://b28jifof43bs6" path="res://Duck/chick.tscn" id="10_d204d"]
+[ext_resource type="PackedScene" uid="uid://ccdvcays3w3gl" path="res://Level/land/pond.tscn" id="10_q3rjx"]
+[ext_resource type="PackedScene" uid="uid://dgkbl63fotlva" path="res://Level/objects/tree_1.tscn" id="10_txdu4"]
+[ext_resource type="PackedScene" uid="uid://cc3y4e4q4tl3d" path="res://Level/objects/bridge.tscn" id="11_ihfob"]
+[ext_resource type="PackedScene" uid="uid://xq42og7e3dlv" path="res://Level/objects/bush.tscn" id="12_2hk6s"]
+[ext_resource type="Script" uid="uid://bf4wjuqvqvl6c" path="res://Level/Levelswitch.cs" id="12_6ds1n"]
+[ext_resource type="PackedScene" uid="uid://dmssvvvkq53vl" path="res://Level/Lake/river.tscn" id="12_q3rjx"]
+[ext_resource type="AudioStream" uid="uid://bd54r4g7vj7eo" path="res://Sounds/AMB_Nature Pack Vol 1_Water Enviroments_ Underground River .mp3" id="15_an3c4"]
+[ext_resource type="AudioStream" uid="uid://bkbjw0kqydxby" path="res://Sounds/park_ambience_wind.wav" id="20_txdu4"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jayqs"]
+size = Vector2(100, 200)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_q3rjx"]
+size = Vector2(500, 120)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_jayqs"]
+b = Vector2(4000, 10)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_an3c4"]
+b = Vector2(0, 4000)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_txdu4"]
+b = Vector2(3500, 10)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_2hk6s"]
+b = Vector2(0, 3500)
 
 [node name="LakeLevel" type="Node2D"]
 
-[node name="Duck" parent="." instance=ExtResource("1_bt7lf")]
-position = Vector2(376, 993)
-
-[node name="Obstacles" type="TileMapLayer" parent="."]
-
-[node name="Bread" parent="Obstacles" instance=ExtResource("9_381eo")]
-z_index = 6
-position = Vector2(1666, 674)
+[node name="Obstacles" type="Node2D" parent="."]
 
 [node name="Stone" parent="Obstacles" instance=ExtResource("3_4y3vx")]
-position = Vector2(913, -110)
+z_index = 7
+position = Vector2(820, -646)
+rotation = -0.44034648
 
 [node name="Stone2" parent="Obstacles" instance=ExtResource("4_381eo")]
-position = Vector2(-27, 226)
+z_index = 8
+position = Vector2(1277, -631)
 
-[node name="Stone3" parent="Obstacles" instance=ExtResource("5_d204d")]
-position = Vector2(166, 133)
+[node name="StickPile" parent="Obstacles" instance=ExtResource("4_q3rjx")]
+z_index = 22
+position = Vector2(1041, -613)
+rotation = -0.12248262
+scale = Vector2(1.8, 1)
+collision_mask = 0
 
-[node name="Stone4" parent="Obstacles" instance=ExtResource("6_jc4vw")]
-position = Vector2(1399, 251)
+[node name="Stone3" parent="Obstacles" instance=ExtResource("3_4y3vx")]
+position = Vector2(-402, -302)
 
-[node name="wave" parent="Obstacles" instance=ExtResource("7_di76u")]
-position = Vector2(626, -243)
-scale = Vector2(2, 2)
+[node name="Stone4" parent="Obstacles" groups=["ground"] instance=ExtResource("4_381eo")]
+position = Vector2(1002, -362)
+collision_layer = 10
+collision_mask = 8
+
+[node name="Bread" parent="Obstacles" instance=ExtResource("9_381eo")]
+position = Vector2(997, -377)
+
+[node name="Bread2" parent="Obstacles" instance=ExtResource("9_381eo")]
+position = Vector2(-706, 347)
+rotation = 1.1968106
+
+[node name="Bread3" parent="Obstacles" instance=ExtResource("9_381eo")]
+position = Vector2(947.0001, 1052)
+rotation = -0.6601288
+
+[node name="Stick1" parent="Obstacles" instance=ExtResource("5_jayqs")]
+position = Vector2(1260, 2058)
+rotation = -1.5570363
+
+[node name="Stick2" parent="Obstacles" instance=ExtResource("8_d5det")]
+z_index = 3
+position = Vector2(472, 1430)
+
+[node name="Stone5" parent="Obstacles" instance=ExtResource("4_381eo")]
+position = Vector2(1591, 1567)
+
+[node name="Stick3" parent="Obstacles" instance=ExtResource("7_an3c4")]
+z_index = 3
+position = Vector2(1599, 811)
+
+[node name="Stone6" parent="Obstacles" instance=ExtResource("3_4y3vx")]
+position = Vector2(-708, 856)
+
+[node name="Stick4" parent="Obstacles" instance=ExtResource("7_an3c4")]
+position = Vector2(1147, 1277.9999)
+rotation = -0.27864197
+
+[node name="Stick5" parent="Obstacles" instance=ExtResource("8_d5det")]
+position = Vector2(1668, 1263)
+rotation = -0.22104749
 
 [node name="Entities" type="Node2D" parent="."]
+y_sort_enabled = true
+
+[node name="Duck" parent="Entities" instance=ExtResource("1_bt7lf")]
+position = Vector2(609, 1714)
+collision_layer = 55
+collision_mask = 37
+
+[node name="Camera2D2" type="Camera2D" parent="Entities/Duck"]
+limit_left = -1000
+limit_top = -950
+limit_right = 2200
+limit_bottom = 2400
+position_smoothing_enabled = true
 
 [node name="Chick" parent="Entities" instance=ExtResource("10_d204d")]
-position = Vector2(861, -215)
+position = Vector2(1792, 813)
 
 [node name="Chick2" parent="Entities" instance=ExtResource("10_d204d")]
-position = Vector2(1428, 182)
+position = Vector2(-747, -199)
 
 [node name="Chick3" parent="Entities" instance=ExtResource("10_d204d")]
-position = Vector2(90, 71)
+position = Vector2(2063, -111)
+
+[node name="Tree1" parent="Entities" instance=ExtResource("10_txdu4")]
+position = Vector2(572.99994, 1038)
+rotation = 0.26905015
+scale = Vector2(2, 2)
+
+[node name="Tree2" parent="Entities" instance=ExtResource("10_txdu4")]
+position = Vector2(353, -680)
+
+[node name="Tree3" parent="Entities" instance=ExtResource("8_6ds1n")]
+position = Vector2(1816, -674)
+
+[node name="Tree5" parent="Entities" instance=ExtResource("8_6ds1n")]
+position = Vector2(2147, -708)
+
+[node name="Tree4" parent="Entities" instance=ExtResource("8_6ds1n")]
+position = Vector2(-894, -687)
+
+[node name="Tree6" parent="Entities" instance=ExtResource("10_txdu4")]
+position = Vector2(-390, -711)
+
+[node name="Tree7" parent="Entities" instance=ExtResource("10_txdu4")]
+position = Vector2(-970, 574)
+
+[node name="Tree8" parent="Entities" instance=ExtResource("8_6ds1n")]
+position = Vector2(2030, 176)
+
+[node name="Tree9" parent="Entities" instance=ExtResource("10_txdu4")]
+position = Vector2(1892, 1167)
+
+[node name="Tree10" parent="Entities" instance=ExtResource("10_txdu4")]
+position = Vector2(1916, 2126)
+
+[node name="Tree11" parent="Entities" instance=ExtResource("8_6ds1n")]
+position = Vector2(-828, 2182)
+
+[node name="Tree12" parent="Entities" instance=ExtResource("8_6ds1n")]
+position = Vector2(597, 2244)
+
+[node name="Tree13" parent="Entities" instance=ExtResource("10_txdu4")]
+position = Vector2(-911, 1470)
+
+[node name="Bush" parent="Entities" instance=ExtResource("12_2hk6s")]
+position = Vector2(535, 1405)
+
+[node name="Bush2" parent="Entities" instance=ExtResource("12_2hk6s")]
+position = Vector2(2175, 632)
+scale = Vector2(1, 1)
+
+[node name="Bush3" parent="Entities" instance=ExtResource("12_2hk6s")]
+position = Vector2(2092, -287)
+
+[node name="Bush4" parent="Entities" instance=ExtResource("12_2hk6s")]
+position = Vector2(-791, -249)
+
+[node name="Bush5" parent="Entities" instance=ExtResource("12_2hk6s")]
+position = Vector2(-304, 2216)
+rotation = 0.65449756
+scale = Vector2(0.8, 0.8)
 
 [node name="Land" type="Node2D" parent="."]
 
-[node name="CurvedBorder" parent="Land" instance=ExtResource("11_q3rjx")]
-position = Vector2(-522, 356)
-rotation = 3.1415927
+[node name="Pond" parent="Land" groups=["ground"] instance=ExtResource("10_q3rjx")]
+position = Vector2(558, 726)
+metadata/_edit_lock_ = true
 
-[node name="CurvedBorder2" parent="Land" instance=ExtResource("11_q3rjx")]
-z_index = 1
-position = Vector2(1674, 1415)
+[node name="River" parent="Land" instance=ExtResource("12_q3rjx")]
+z_index = 5
+position = Vector2(1047, -871.00006)
+rotation = -1.4581293
+scale = Vector2(2, 4)
+FlowSpeed = 120.0
 
-[node name="CurvedBorder3" parent="Land" instance=ExtResource("11_q3rjx")]
-position = Vector2(86, 2004)
-rotation = 1.5707964
+[node name="riverRush" type="AudioStreamPlayer2D" parent="Land/River"]
+stream = ExtResource("15_an3c4")
+autoplay = true
+max_distance = 1000.0
 
-[node name="CurvedBorder4" parent="Land" instance=ExtResource("11_q3rjx")]
-position = Vector2(-524, 1356)
-rotation = 3.1415927
+[node name="wave" parent="Land" instance=ExtResource("7_di76u")]
+position = Vector2(1204, -394)
+rotation = 0.2195344
 
-[node name="straight_border" parent="Land" instance=ExtResource("10_d5det")]
-position = Vector2(1674, 418)
+[node name="wave2" parent="Land" instance=ExtResource("7_di76u")]
+position = Vector2(766, -351.99997)
+rotation = -1.8344041
 
-[node name="straight_border2" parent="Land" instance=ExtResource("10_d5det")]
-position = Vector2(1084, 2010)
-rotation = 1.5707964
+[node name="Land_Round" parent="Land" instance=ExtResource("10_6ds1n")]
+z_index = 2
+position = Vector2(742.99994, 1200.9999)
+rotation = 1.1331142
 
-[node name="straight_border3" parent="Land" instance=ExtResource("10_d5det")]
-position = Vector2(111, -259)
-rotation = 4.712389
+[node name="Area2D3" type="StaticBody2D" parent="Land"]
+z_index = 6
+position = Vector2(1015, 1260)
 
-[node name="straight_border4" parent="Land" instance=ExtResource("10_d5det")]
-position = Vector2(1674, -572)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Land/Area2D3"]
+position = Vector2(191, 37)
+shape = SubResource("RectangleShape2D_jayqs")
+
+[node name="Area2D2" type="StaticBody2D" parent="Land"]
+z_index = 6
+position = Vector2(1420, 1261)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Land/Area2D2"]
+position = Vector2(191, 37)
+shape = SubResource("RectangleShape2D_jayqs")
+
+[node name="Bridge" parent="Land" instance=ExtResource("11_ihfob")]
+position = Vector2(1405, 1302)
+
+[node name="levelswitch" type="Area2D" parent="."]
+y_sort_enabled = true
+position = Vector2(8, 28)
+script = ExtResource("12_6ds1n")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="levelswitch"]
+z_index = 50
+position = Vector2(1048, -966)
+shape = SubResource("RectangleShape2D_q3rjx")
+
+[node name="Borders" type="Node2D" parent="."]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Borders"]
+z_index = 7
+position = Vector2(-1146, -972)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Borders/StaticBody2D"]
+shape = SubResource("SegmentShape2D_jayqs")
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="Borders"]
+position = Vector2(-1129, -968)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Borders/StaticBody2D2"]
+shape = SubResource("SegmentShape2D_an3c4")
+
+[node name="StaticBody2D3" type="StaticBody2D" parent="Borders"]
+position = Vector2(-1160, 2420)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Borders/StaticBody2D3"]
+shape = SubResource("SegmentShape2D_txdu4")
+
+[node name="StaticBody2D4" type="StaticBody2D" parent="Borders"]
+position = Vector2(2254, -994)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Borders/StaticBody2D4"]
+z_index = 7
+shape = SubResource("SegmentShape2D_2hk6s")
+
+[node name="AmbNaturePackVol1WaterEnviromentsUndergroundRiver" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("20_txdu4")
+autoplay = true

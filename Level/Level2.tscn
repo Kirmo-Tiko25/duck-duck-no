@@ -1,44 +1,422 @@
-[gd_scene load_steps=9 format=3 uid="uid://bkcvk5g6bhpcy"]
+[gd_scene load_steps=27 format=3 uid="uid://bkcvk5g6bhpcy"]
 
-[ext_resource type="PackedScene" uid="uid://cnlkvy0jm4xve" path="res://Level/MovingCamera.tscn" id="1_r72xe"]
+[ext_resource type="PackedScene" uid="uid://c38pirg0c0dr4" path="res://Level/objects/stone.tscn" id="1_5fcuh"]
 [ext_resource type="PackedScene" uid="uid://cp0r1vciihuun" path="res://Duck/Duck.tscn" id="1_vte4j"]
-[ext_resource type="PackedScene" uid="uid://b2yscqtqg2ool" path="res://Level/objects/Stick1.tscn" id="2_r72xe"]
+[ext_resource type="PackedScene" uid="uid://ii6ym3ydx1pn" path="res://Level/objects/stick_pile.tscn" id="3_7emdk"]
 [ext_resource type="PackedScene" uid="uid://2vclwnntgvlt" path="res://Level/objects/stone2.tscn" id="3_dfp7q"]
-[ext_resource type="PackedScene" uid="uid://c0f2cod6klnb6" path="res://Level/objects/Stone3.tscn" id="4_5fcuh"]
+[ext_resource type="PackedScene" uid="uid://b28jifof43bs6" path="res://Duck/chick.tscn" id="3_iqgyj"]
+[ext_resource type="PackedScene" uid="uid://ekiafhuxf4gw" path="res://Level/objects/bread.tscn" id="4_fbsbn"]
+[ext_resource type="PackedScene" uid="uid://xq42og7e3dlv" path="res://Level/objects/bush.tscn" id="5_2elvr"]
 [ext_resource type="PackedScene" uid="uid://blw4j2ndrtadv" path="res://Level/Lake/wave.tscn" id="5_7emdk"]
-[ext_resource type="PackedScene" uid="uid://oe7afcn7fflt" path="res://Level/land/curved_border.tscn" id="6_2elvr"]
-[ext_resource type="PackedScene" uid="uid://mm8ypo6tx5dk" path="res://Level/land/straight_border.tscn" id="7_4jxqv"]
+[ext_resource type="PackedScene" uid="uid://dgkbl63fotlva" path="res://Level/objects/tree_1.tscn" id="6_4jxqv"]
+[ext_resource type="PackedScene" uid="uid://dn04npbc4cjxr" path="res://Level/objects/tree_2.tscn" id="7_iqgyj"]
+[ext_resource type="PackedScene" uid="uid://oquf3o7gcpfy" path="res://Level/land/land_round.tscn" id="8_dfp7q"]
+[ext_resource type="PackedScene" uid="uid://4gw5rxw8fd0h" path="res://Level/land/green_long.tscn" id="9_2elvr"]
+[ext_resource type="PackedScene" uid="uid://cc5fh0ufu2sgi" path="res://Level/land/land_long.tscn" id="9_5fcuh"]
+[ext_resource type="AudioStream" uid="uid://bd54r4g7vj7eo" path="res://Sounds/AMB_Nature Pack Vol 1_Water Enviroments_ Underground River .mp3" id="9_dfp7q"]
+[ext_resource type="PackedScene" uid="uid://o8jxbp161bmh" path="res://Level/Lake/river_straight_1.tscn" id="10_iqgyj"]
+[ext_resource type="PackedScene" uid="uid://dmssvvvkq53vl" path="res://Level/Lake/river.tscn" id="11_2elvr"]
+[ext_resource type="PackedScene" uid="uid://dq0rwyqnrjyw0" path="res://Level/Lake/river_straight_2.tscn" id="11_85m8j"]
+[ext_resource type="PackedScene" uid="uid://badc7e8hmyivv" path="res://Level/Lake/river_right.tscn" id="12_mvbbc"]
+[ext_resource type="PackedScene" uid="uid://c8vlpj0qkboss" path="res://Level/Lake/river_left.tscn" id="13_12xmp"]
+[ext_resource type="PackedScene" uid="uid://bw7pjof3myd1m" path="res://Level/land/green_round.tscn" id="18_d47wi"]
+[ext_resource type="AudioStream" uid="uid://bkbjw0kqydxby" path="res://Sounds/park_ambience_wind.wav" id="21_d47wi"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mvbbc"]
+size = Vector2(1300, 600)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_d47wi"]
+b = Vector2(6000, 10)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_m5s1n"]
+b = Vector2(0, 10000)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_63yym"]
+b = Vector2(80000, 10)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_k0nak"]
+b = Vector2(0, 10000)
 
 [node name="River" type="Node2D"]
 
-[node name="MovingCamera" parent="." instance=ExtResource("1_r72xe")]
+[node name="Obstacles" type="Node2D" parent="."]
 
-[node name="Entities" type="Node2D" parent="."]
+[node name="Stone" parent="Obstacles" instance=ExtResource("1_5fcuh")]
+position = Vector2(87, 1295)
 
-[node name="Duck" parent="Entities" instance=ExtResource("1_vte4j")]
-position = Vector2(345, 907)
+[node name="Stone2" parent="Obstacles" instance=ExtResource("3_dfp7q")]
+position = Vector2(564, 1274)
+
+[node name="StickPile2" parent="Obstacles" instance=ExtResource("3_7emdk")]
+z_index = 22
+position = Vector2(330.99994, 1297)
+rotation = -0.12248262
+scale = Vector2(1.8, 1)
+collision_mask = 0
+
+[node name="Stone3" parent="Obstacles" instance=ExtResource("1_5fcuh")]
+position = Vector2(-76, 258)
+scale = Vector2(2, 2)
+
+[node name="Stone4" parent="Obstacles" instance=ExtResource("1_5fcuh")]
+position = Vector2(110, -1265)
+rotation = -1.4009861
+
+[node name="Bread" parent="Obstacles" instance=ExtResource("4_fbsbn")]
+position = Vector2(-356, -7028)
+rotation = -0.6402236
+
+[node name="Bread2" parent="Obstacles" instance=ExtResource("4_fbsbn")]
+position = Vector2(-494, -6924)
+rotation = -1.2377653
+
+[node name="Bread3" parent="Obstacles" instance=ExtResource("4_fbsbn")]
+position = Vector2(-265, -7179)
+rotation = -1.8368924
+
+[node name="Bread4" parent="Obstacles" instance=ExtResource("4_fbsbn")]
+position = Vector2(-783, -7379)
+rotation = -0.7900593
+
+[node name="Stone5" parent="Obstacles" instance=ExtResource("3_dfp7q")]
+position = Vector2(483, -2029.9999)
+rotation = 2.9198363
+scale = Vector2(2, 2)
+
+[node name="Stone6" parent="Obstacles" instance=ExtResource("3_dfp7q")]
+position = Vector2(1863, -2307)
+
+[node name="Stone7" parent="Obstacles" instance=ExtResource("1_5fcuh")]
+position = Vector2(2548, -3487)
+rotation = -1.8772835
+scale = Vector2(2, 1.5)
+
+[node name="Stone8" parent="Obstacles" instance=ExtResource("1_5fcuh")]
+position = Vector2(1723.0002, -5154)
+rotation = 1.7692801
+
+[node name="Stone9" parent="Obstacles" instance=ExtResource("3_dfp7q")]
+position = Vector2(393, -5906)
+
+[node name="Stone10" parent="Obstacles" instance=ExtResource("3_dfp7q")]
+position = Vector2(2934, -2209)
+scale = Vector2(2, 2)
 
 [node name="Objects" type="Node2D" parent="."]
+y_sort_enabled = true
 
-[node name="Stick1" parent="Objects" instance=ExtResource("2_r72xe")]
-position = Vector2(352.99997, 1026)
-rotation = 1.0296841
-scale = Vector2(2.6829374, 2.5805008)
+[node name="Tree6" parent="Objects" instance=ExtResource("6_4jxqv")]
+position = Vector2(3210, -3497)
 
-[node name="Stone2" parent="Objects" instance=ExtResource("3_dfp7q")]
-position = Vector2(166, 960)
+[node name="Duck" parent="Objects" instance=ExtResource("1_vte4j")]
+position = Vector2(574, 788)
 
-[node name="Stone3" parent="Objects" instance=ExtResource("4_5fcuh")]
-position = Vector2(523, 948)
+[node name="Camera2D2" type="Camera2D" parent="Objects/Duck"]
+limit_left = -1200
+limit_top = -7700
+limit_right = 4000
+limit_bottom = 1450
+
+[node name="Chick2" parent="Objects" instance=ExtResource("3_iqgyj")]
+position = Vector2(3433, -2512)
+rotation = 0.0
+
+[node name="Chick" parent="Objects" instance=ExtResource("3_iqgyj")]
+position = Vector2(-208, 433)
+
+[node name="Chick3" parent="Objects" instance=ExtResource("3_iqgyj")]
+position = Vector2(1423, -3093)
+
+[node name="Bush" parent="Objects" instance=ExtResource("5_2elvr")]
+position = Vector2(325, -1949)
+
+[node name="Tree1" parent="Objects" instance=ExtResource("6_4jxqv")]
+position = Vector2(759, -630)
+
+[node name="Tree2" parent="Objects" instance=ExtResource("7_iqgyj")]
+position = Vector2(-425, 497)
+
+[node name="Tree3" parent="Objects" instance=ExtResource("6_4jxqv")]
+position = Vector2(-763, 433)
+
+[node name="Tree4" parent="Objects" instance=ExtResource("6_4jxqv")]
+position = Vector2(-522, -1378)
+
+[node name="Tree5" parent="Objects" instance=ExtResource("7_iqgyj")]
+position = Vector2(224, -1939)
+
+[node name="Tree7" parent="Objects" instance=ExtResource("7_iqgyj")]
+position = Vector2(3507, -3407)
+
+[node name="Bush2" parent="Objects" instance=ExtResource("5_2elvr")]
+position = Vector2(3313, -3163)
+
+[node name="Bush3" parent="Objects" instance=ExtResource("5_2elvr")]
+position = Vector2(1402, -4520)
+
+[node name="Bush4" parent="Objects" instance=ExtResource("5_2elvr")]
+position = Vector2(3167, -2206)
+rotation = 0.17244793
+scale = Vector2(1, 1)
 
 [node name="Land" type="Node2D" parent="."]
 
 [node name="wave" parent="Land" instance=ExtResource("5_7emdk")]
 position = Vector2(168, 487)
 
-[node name="CurvedBorder" parent="Land" instance=ExtResource("6_2elvr")]
-position = Vector2(0, 500)
-rotation = 3.1415927
+[node name="Land_Round" parent="Land" instance=ExtResource("8_dfp7q")]
+position = Vector2(-680, 1224)
+rotation = 5.8803844
+scale = Vector2(2, 2)
 
-[node name="straight_border" parent="Land" instance=ExtResource("7_4jxqv")]
-position = Vector2(712, 500)
+[node name="Land_Long2" parent="Land" instance=ExtResource("9_5fcuh")]
+position = Vector2(817, 561)
+rotation = 3.1415927
+scale = Vector2(1.4, 3)
+
+[node name="GreenLand_long" parent="Land" instance=ExtResource("9_2elvr")]
+z_index = 2
+position = Vector2(1388, -713.99994)
+rotation = 0.6395315
+
+[node name="GreenLand_long5" parent="Land" instance=ExtResource("9_2elvr")]
+z_index = 2
+position = Vector2(2994.9998, -6627)
+rotation = 2.9656482
+scale = Vector2(5, 5)
+
+[node name="RiverStraight1" parent="Land" instance=ExtResource("10_iqgyj")]
+position = Vector2(348, -155)
+
+[node name="RiverStraight2" parent="Land" instance=ExtResource("11_85m8j")]
+position = Vector2(346, 910)
+
+[node name="RiverRight" parent="Land" instance=ExtResource("12_mvbbc")]
+position = Vector2(420, -1294)
+scale = Vector2(2, 2)
+
+[node name="RiverRight2" parent="Land" instance=ExtResource("12_mvbbc")]
+position = Vector2(1090, -2015)
+rotation = 0.8033726
+scale = Vector2(2, 2)
+
+[node name="RiverLeft" parent="Land" instance=ExtResource("13_12xmp")]
+position = Vector2(2068, -2158)
+rotation = 1.6179838
+scale = Vector2(2, 2)
+
+[node name="RiverLeft2" parent="Land" instance=ExtResource("13_12xmp")]
+position = Vector2(2775, -2793.9998)
+rotation = 0.7917094
+scale = Vector2(2, 2)
+
+[node name="RiverRight3" parent="Land" instance=ExtResource("12_mvbbc")]
+position = Vector2(2776, -3537)
+rotation = 2.3448625
+scale = Vector2(2, 2)
+
+[node name="RiverStraight3" parent="Land" instance=ExtResource("11_85m8j")]
+position = Vector2(2042, -4397.0005)
+rotation = -0.72416836
+
+[node name="Land_Round2" parent="Land" instance=ExtResource("8_dfp7q")]
+position = Vector2(987.00024, -3312.9998)
+rotation = 0.830165
+scale = Vector2(3, 3)
+
+[node name="Land_Long3" parent="Land" instance=ExtResource("9_5fcuh")]
+position = Vector2(1988, -1576)
+rotation = -1.8607899
+scale = Vector2(2, 3)
+
+[node name="Land_Long4" parent="Land" instance=ExtResource("9_5fcuh")]
+position = Vector2(-152, -1200)
+rotation = 0.09484174
+scale = Vector2(2, 3)
+
+[node name="Land_Round3" parent="Land" instance=ExtResource("8_dfp7q")]
+position = Vector2(991, -923)
+
+[node name="Land_Round4" parent="Land" instance=ExtResource("8_dfp7q")]
+position = Vector2(-535.0003, -7085.0005)
+rotation = -2.7012608
+scale = Vector2(1.5, 1.5)
+
+[node name="Land_Long5" parent="Land" instance=ExtResource("9_5fcuh")]
+z_index = 1
+position = Vector2(3324, -2753)
+rotation = 3.3225691
+scale = Vector2(2, 3)
+
+[node name="Land_Long6" parent="Land" instance=ExtResource("9_5fcuh")]
+z_index = 1
+position = Vector2(2700, -4428.0005)
+rotation = 2.3327858
+scale = Vector2(1.5, 2.5)
+
+[node name="RiverStraight4" parent="Land" instance=ExtResource("10_iqgyj")]
+position = Vector2(1351.9999, -5167)
+rotation = -0.69948816
+
+[node name="RiverStraight5" parent="Land" instance=ExtResource("11_85m8j")]
+position = Vector2(465.00018, -6161)
+rotation = -0.7262172
+scale = Vector2(2, 3)
+
+[node name="Land_Round5" parent="Land" instance=ExtResource("8_dfp7q")]
+position = Vector2(-615.9999, -5647.0005)
+rotation = 1.9373114
+scale = Vector2(2, 2)
+
+[node name="Area2D" parent="Land" instance=ExtResource("18_d47wi")]
+position = Vector2(1667.0004, -6783.001)
+rotation = 2.0673277
+scale = Vector2(3, 3.5)
+collision_layer = 1
+
+[node name="Area2D2" parent="Land" instance=ExtResource("18_d47wi")]
+position = Vector2(3130, 591.99994)
+scale = Vector2(5, 5)
+
+[node name="Area2D3" parent="Land" instance=ExtResource("18_d47wi")]
+position = Vector2(-2494, 87.99989)
+rotation = -0.30083686
+scale = Vector2(5, 5)
+
+[node name="Area2D4" parent="Land" instance=ExtResource("18_d47wi")]
+position = Vector2(-1214, -3811)
+rotation = -2.898246
+scale = Vector2(5, 5)
+
+[node name="GreenLand_long2" parent="Land" instance=ExtResource("9_2elvr")]
+position = Vector2(-1358, -7007)
+rotation = 0.23981182
+scale = Vector2(4, 4)
+
+[node name="Area2D5" parent="Land" instance=ExtResource("18_d47wi")]
+position = Vector2(539.9995, -8488)
+rotation = 0.70330393
+scale = Vector2(3, 3)
+
+[node name="GreenLand_long3" parent="Land" instance=ExtResource("9_2elvr")]
+position = Vector2(-731, -6522)
+rotation = 1.7966512
+
+[node name="GreenLand_long4" parent="Land" instance=ExtResource("9_2elvr")]
+position = Vector2(643.9998, -5161)
+rotation = 2.305734
+scale = Vector2(1.5, 2)
+collision_layer = 3
+
+[node name="GreenLand_long6" parent="Land" instance=ExtResource("9_2elvr")]
+position = Vector2(3825.9998, -2931.0002)
+rotation = 3.3027222
+scale = Vector2(3, 3)
+
+[node name="rivers" type="Node2D" parent="."]
+
+[node name="River" parent="rivers" instance=ExtResource("11_2elvr")]
+position = Vector2(350.99997, 722.00006)
+rotation = -1.5375273
+scale = Vector2(3, 3.5)
+
+[node name="River2" parent="rivers" instance=ExtResource("11_2elvr")]
+position = Vector2(364, -853)
+rotation = -1.5660877
+scale = Vector2(3.3, 3)
+
+[node name="River3" parent="rivers" instance=ExtResource("11_2elvr")]
+position = Vector2(839.0001, -1830)
+rotation = -0.48755234
+scale = Vector2(2, 2)
+FlowSpeed = 200.0
+
+[node name="River4" parent="rivers" instance=ExtResource("11_2elvr")]
+position = Vector2(1596.0001, -2055.9998)
+rotation = -0.13578254
+scale = Vector2(1.4, 3)
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="rivers/River4"]
+stream = ExtResource("9_dfp7q")
+autoplay = true
+
+[node name="River5" parent="rivers" instance=ExtResource("11_2elvr")]
+position = Vector2(2335.0002, -2306)
+rotation = -0.46535623
+scale = Vector2(2, 3)
+
+[node name="River6" parent="rivers" instance=ExtResource("11_2elvr")]
+position = Vector2(2840.0002, -3037)
+rotation = -1.5399317
+scale = Vector2(2, 3)
+
+[node name="River7" parent="rivers" instance=ExtResource("11_2elvr")]
+position = Vector2(2590.0005, -3876)
+rotation = -2.2532005
+scale = Vector2(2, 3)
+FlowSpeed = 200.0
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="rivers/River7"]
+stream = ExtResource("9_dfp7q")
+autoplay = true
+
+[node name="River8" parent="rivers" instance=ExtResource("11_2elvr")]
+position = Vector2(1983.9998, -4527.9995)
+rotation = -2.4056296
+scale = Vector2(1.6, 2)
+FlowSpeed = 250.0
+
+[node name="River9" parent="rivers" instance=ExtResource("11_2elvr")]
+position = Vector2(860.00006, -5718.9995)
+rotation = -2.2991729
+scale = Vector2(5, 3)
+FlowSpeed = 100.0
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="rivers/River9"]
+stream = ExtResource("9_dfp7q")
+autoplay = true
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="rivers"]
+stream = ExtResource("9_dfp7q")
+autoplay = true
+
+[node name="LevelSwitch" type="Area2D" parent="."]
+z_index = 10
+position = Vector2(-421, -7444)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LevelSwitch"]
+position = Vector2(-276, 196)
+rotation = -0.73627657
+shape = SubResource("RectangleShape2D_mvbbc")
+
+[node name="ParkAmbienceWind" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("21_d47wi")
+autoplay = true
+
+[node name="Borders" type="Node2D" parent="."]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Borders"]
+z_index = 7
+position = Vector2(-1226, -7685)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Borders/StaticBody2D"]
+shape = SubResource("SegmentShape2D_d47wi")
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="Borders"]
+position = Vector2(-1225, -7686)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Borders/StaticBody2D2"]
+shape = SubResource("SegmentShape2D_m5s1n")
+
+[node name="StaticBody2D3" type="StaticBody2D" parent="Borders"]
+position = Vector2(-1176, 1436)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Borders/StaticBody2D3"]
+shape = SubResource("SegmentShape2D_63yym")
+
+[node name="StaticBody2D4" type="StaticBody2D" parent="Borders"]
+position = Vector2(3928, -7805)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Borders/StaticBody2D4"]
+z_index = 7
+shape = SubResource("SegmentShape2D_k0nak")

@@ -1,25 +1,104 @@
-[gd_scene load_steps=4 format=3 uid="uid://cd5itpkykdcmn"]
+[gd_scene load_steps=10 format=3 uid="uid://b28jifof43bs6"]
 
-[ext_resource type="Texture2D" uid="uid://i5sbvl04rmkr" path="res://Art/Duck.png" id="1_lo2b6"]
+[ext_resource type="Script" uid="uid://cem7u8m2nsikq" path="res://Duck/Chick.cs" id="1_h6ix5"]
+[ext_resource type="Texture2D" uid="uid://d1buarm1axsm4" path="res://Art/Duck asset/base.png" id="2_1w2pr"]
+[ext_resource type="Texture2D" uid="uid://cuca7xmcmak7v" path="res://Art/Duck asset/waddle left.png" id="3_81ffn"]
+[ext_resource type="Texture2D" uid="uid://bmt64y0wkrw2l" path="res://Art/Duck asset/waddle right.png" id="4_f26ls"]
+[ext_resource type="Texture2D" uid="uid://jag03vi5t857" path="res://Art/Duck asset/pixel1.png" id="5_0i1rd"]
+[ext_resource type="Texture2D" uid="uid://ckecdgwqn2mvv" path="res://Art/Duck asset/Pixel.png" id="6_vb6kw"]
 
-[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_lo2b6"]
-friction = 0.2
-bounce = 1.0
+[sub_resource type="SpriteFrames" id="SpriteFrames_q04jp"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_1w2pr")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_81ffn")
+}],
+"loop": true,
+"name": &"left",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_f26ls")
+}],
+"loop": true,
+"name": &"right",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_1w2pr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_81ffn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_1w2pr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_f26ls")
+}],
+"loop": true,
+"name": &"waddle",
+"speed": 3.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_1w2pr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_0i1rd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_1w2pr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_vb6kw")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 3.0
+}]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_80kjk"]
-radius = 30.0
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_aefgl"]
+radius = 20.0
+height = 80.0
 
-[node name="Chick" type="RigidBody2D"]
-z_index = 10
-collision_layer = 2
-collision_mask = 3
-mass = 0.5
-physics_material_override = SubResource("PhysicsMaterial_lo2b6")
-gravity_scale = 2.0
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_deryo"]
+radius = 20.0
+height = 80.0
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.3, 0.3)
-texture = ExtResource("1_lo2b6")
+[node name="Chick" type="CharacterBody2D" groups=["chick", "duck"]]
+z_index = 20
+y_sort_enabled = true
+rotation = 1.5707964
+collision_layer = 27
+collision_mask = 9
+motion_mode = 1
+wall_min_slide_angle = 0.43633232
+script = ExtResource("1_h6ix5")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.03, 0.03)
+sprite_frames = SubResource("SpriteFrames_q04jp")
+animation = &"walk"
+frame = 3
+frame_progress = 0.18240896
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("CircleShape2D_80kjk")
+shape = SubResource("CapsuleShape2D_aefgl")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 2
+
+[node name="LandDetector" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CapsuleShape2D_deryo")

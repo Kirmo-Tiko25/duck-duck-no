@@ -1,0 +1,16 @@
+[gd_scene load_steps=2 format=3 uid="uid://oquf3o7gcpfy"]
+
+[ext_resource type="Texture2D" uid="uid://bveg5jn5o3exa" path="res://Art/RiverLevelArt/LandAsset_V1.png" id="1_urkrk"]
+
+[node name="Land_Round" type="Sprite2D" groups=["ground"]]
+z_index = 1
+texture = ExtResource("1_urkrk")
+
+[node name="Area2D" type="StaticBody2D" parent="." groups=["ground"]]
+z_index = 1
+collision_layer = 2
+collision_mask = 0
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D"]
+visible = false
+polygon = PackedVector2Array(-66, -478, 53, -467, 181, -478, 416, -366, 498, -279, 485, -88, 431, 52, 290, 264, 236, 426, 167, 474, 70, 467, -37, 479, -134, 404, -240, 412, -385, 330, -501, 168, -447, 21, -466, -124, -370, -325, -298, -394)

@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://dq0rwyqnrjyw0"]
+
+[ext_resource type="Texture2D" uid="uid://bott6tqbks5p1" path="res://Art/RiverLevelArt/River_Straight2.png" id="1_ueeh2"]
+
+[node name="RiverStraight2" type="Sprite2D" groups=["river"]]
+scale = Vector2(2, 2)
+texture = ExtResource("1_ueeh2")
