@@ -18,6 +18,8 @@ public partial class Chick : CharacterBody2D
 	private Duck _player;
 	private Vector2 _targetPosition;
 	private float currentSpeed;
+	private FollowerManager _manager;
+	private bool _isFollowing = false;
 
 	// Area2D detector
 	private Area2D _landDetector;
@@ -30,6 +32,8 @@ public partial class Chick : CharacterBody2D
 	{
 		_landDetector = GetNode<Area2D>("Area2D");
 		_player = GetParent().GetNode<Duck>("Duck");
+		_manager = GetNode<FollowerManager>("/root/Main/FollowerManager");
+
 		if (_player == null)
 		{
 			GD.PrintErr("Chick: Could not find PlayerDuck!");
@@ -63,11 +67,21 @@ public partial class Chick : CharacterBody2D
 		{
 			// start following when close enough
 			_targetPosition = playerPos - directionToPlayer * StopDistance;
+			if (!_isFollowing)
+			{
+				_isFollowing = true;
+				_manager.AddFollower(this);
+			}
 		}
 		else
 		{
 			// stop or idle
 			_targetPosition = Position;
+			if (_isFollowing)
+			{
+				_isFollowing = false;
+				_manager.RemoveFollower(this);
+			}
 		}
 
 		// movement

@@ -18,7 +18,7 @@ public partial class MainMenu : Node2D
 		// Hook level buttons
 		GetNode<Button>("VBoxContainer/LevelSelect/Lake").Pressed += () => LoadLevel(1);
 		GetNode<Button>("VBoxContainer/LevelSelect/River").Pressed += () => LoadLevel(2);
-		GetNode<Button>("VBoxContainer/LevelSelect/Test_V").Pressed += () => LoadLevel(3);
+		//GetNode<Button>("VBoxContainer/LevelSelect/Test_V").Pressed += () => LoadLevel(3);
 
 		quack = GetNode<AudioStreamPlayer>("Quack");
 	}
@@ -45,7 +45,7 @@ public partial class MainMenu : Node2D
 	{
 		GD.Print($"Loading Level {levelNumber}....");
 		// load level as child of LEvelRoot
-		var LevelRoot = GetNode<Node2D>("//root/Main/Level/LevelRoot");
+		/*var LevelRoot = GetNode<Node2D>("//root/Main/Level/LevelRoot");
 		string scenePath = $"res://Level/Level{levelNumber}.tscn";
 		var scene = GD.Load<PackedScene>(scenePath).Instantiate<Node2D>();
 		if (scene != null)
@@ -55,23 +55,13 @@ public partial class MainMenu : Node2D
 		else
 		{
 			GD.PrintErr($"Level {levelNumber} not found: {scenePath}");
-		}
+		} */
+		var main = GetNode<Main>("/root/Main");
+		string scenePath = $"res://Level/Level{levelNumber}.tscn";
+		main.LoadScene(scenePath);
 		// Hide menu
 		this.Visible = false;
 
-	}
-
-	private void ChangeScene(string scenePath)
-	{
-		var scene = GD.Load<PackedScene>(scenePath);
-		if (scene != null)
-		{
-			GetTree().ChangeSceneToPacked(scene);
-		}
-		else
-		{
-			GD.PrintErr($"Failed to load scene: {scenePath}");
-		}
 	}
 
 	private void OnStartPressed()

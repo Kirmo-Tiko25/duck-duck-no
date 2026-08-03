@@ -30,7 +30,7 @@ public partial class River : Area2D
 		if (body is Duck player)
 		{
 			//_duckInRiver.Add(body as Node2D);
-			GD.Print("Duck in river");
+			GD.Print($"Duck in river this fast: {FlowSpeed}");
 			player.RiverVelocity += FlowVelocity;
 
 		}

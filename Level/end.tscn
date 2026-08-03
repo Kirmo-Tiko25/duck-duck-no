@@ -1,0 +1,65 @@
+[gd_scene load_steps=4 format=3 uid="uid://byine0xkdjsgu"]
+
+[ext_resource type="Script" uid="uid://h77dsk4v5akr" path="res://Level/End.cs" id="1_l65ow"]
+[ext_resource type="Texture2D" uid="uid://cg32ljie2vtj6" path="res://Art/BG_scetch.png" id="2_nmd8u"]
+[ext_resource type="Texture2D" uid="uid://d1buarm1axsm4" path="res://Art/Duck asset/base.png" id="3_nmd8u"]
+
+[node name="End" type="Node2D"]
+process_mode = 3
+z_index = 90
+script = ExtResource("1_l65ow")
+
+[node name="Label" type="Label" parent="."]
+z_index = 99
+offset_left = 122.0
+offset_top = 361.0
+offset_right = 556.0
+offset_bottom = 471.0
+theme_override_colors/font_color = Color(1, 0.7607843, 0.32941177, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 80
+text = "Game Over"
+horizontal_alignment = 1
+
+[node name="Control" type="Control" parent="."]
+z_index = 80
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Quit" type="Button" parent="Control"]
+z_index = 99
+layout_mode = 0
+offset_left = 250.0
+offset_top = 826.0
+offset_right = 384.0
+offset_bottom = 917.0
+theme_override_font_sizes/font_size = 60
+text = "Quit"
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+z_index = 90
+position = Vector2(327.00003, 546.00006)
+rotation = 3.1415927
+scale = Vector2(1.7, 1.7)
+texture = ExtResource("2_nmd8u")
+
+[node name="FollowerCountLabel" type="Label" parent="."]
+z_index = 91
+offset_left = 86.0
+offset_top = 474.0
+offset_right = 126.0
+offset_bottom = 541.0
+theme_override_colors/font_color = Color(0.39444453, 0.642497, 0.4205853, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 38
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+z_index = 92
+position = Vector2(448, 730.99994)
+rotation = -2.617373
+scale = Vector2(0.05, 0.05)
+texture = ExtResource("3_nmd8u")

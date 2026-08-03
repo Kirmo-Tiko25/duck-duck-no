@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://dbt4l1k5pq7om"]
+[gd_scene load_steps=30 format=3 uid="uid://dbt4l1k5pq7om"]
 
 [ext_resource type="PackedScene" uid="uid://cp0r1vciihuun" path="res://Duck/Duck.tscn" id="1_bt7lf"]
 [ext_resource type="PackedScene" uid="uid://c38pirg0c0dr4" path="res://Level/objects/stone.tscn" id="3_4y3vx"]
@@ -20,6 +20,43 @@
 [ext_resource type="PackedScene" uid="uid://dmssvvvkq53vl" path="res://Level/Lake/river.tscn" id="12_q3rjx"]
 [ext_resource type="AudioStream" uid="uid://bd54r4g7vj7eo" path="res://Sounds/AMB_Nature Pack Vol 1_Water Enviroments_ Underground River .mp3" id="15_an3c4"]
 [ext_resource type="AudioStream" uid="uid://bkbjw0kqydxby" path="res://Sounds/park_ambience_wind.wav" id="20_txdu4"]
+
+[sub_resource type="Animation" id="Animation_8wwbj"]
+resource_name = "swoosh"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 2, 3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_fxmpn"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_m2ck0"]
+_data = {
+&"RESET": SubResource("Animation_fxmpn"),
+&"swoosh": SubResource("Animation_8wwbj")
+}
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jayqs"]
 size = Vector2(100, 200)
@@ -186,6 +223,24 @@ position = Vector2(-791, -249)
 position = Vector2(-304, 2216)
 rotation = 0.65449756
 scale = Vector2(0.8, 0.8)
+
+[node name="Prompt" type="Label" parent="Entities"]
+z_index = 99
+offset_left = 423.0
+offset_top = 1330.0
+offset_right = 843.0
+offset_bottom = 1499.0
+theme_override_colors/font_color = Color(0.88154185, 0.62730867, 0.5234305, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 60
+text = "Eat bread and 
+Find Duckings!"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Entities/Prompt"]
+libraries = {
+&"": SubResource("AnimationLibrary_m2ck0")
+}
+autoplay = "swoosh"
 
 [node name="Land" type="Node2D" parent="."]
 

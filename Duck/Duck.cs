@@ -128,7 +128,7 @@ public partial class Duck : CharacterBody2D
 		// Only reacts if entered body is part of river
 		else if (body.IsInGroup("river"))
 		{
-			if (!isOnLand)
+			if (isOnLand == false)
 			{
 				isinRiver = true;
 				GD.Print("Duck in flowing river");

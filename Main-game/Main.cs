@@ -10,6 +10,8 @@ public partial class Main : Node
 	private bool isFading = false;
 	private string pendingScenePath = "";
 
+	public int chicks = 0;
+
 	public override void _Ready()
 	{
 		Fader.Play("FadeIn");
@@ -29,9 +31,6 @@ public partial class Main : Node
 
 		// start timer
 		SceneTransitionTimer.Start();
-		//SceneTransitionTimer.Connect(nameof(Timer.Timeout), Callable.From(OnFadeTimeout).Bind(scenePath));
-		//var callable = Callable.From((string animName) => OnFadeOutComplete(scenePath));
-		//Fader.Connect("animation_finished", callable);
 	}
 
 	private void OnFadeTimeout()

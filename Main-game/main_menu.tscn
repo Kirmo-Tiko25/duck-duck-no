@@ -49,36 +49,22 @@ text = "Level Select"
 
 [node name="LevelSelect" type="HBoxContainer" parent="VBoxContainer"]
 layout_mode = 2
+alignment = 1
 
 [node name="Lake" type="Button" parent="VBoxContainer/LevelSelect"]
 layout_mode = 2
 theme = ExtResource("2_l65cs")
-text = "LAKE"
+text = "  Lake  "
 
 [node name="River" type="Button" parent="VBoxContainer/LevelSelect"]
 layout_mode = 2
 theme = ExtResource("2_l65cs")
-text = "River"
-
-[node name="Test_V" type="Button" parent="VBoxContainer/LevelSelect"]
-layout_mode = 2
-theme = ExtResource("2_l65cs")
-text = "Test_H"
+text = "  River  "
 
 [node name="Quit" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 48
 text = "Quit"
-
-[node name="RichTextLabel" type="RichTextLabel" parent="."]
-z_index = 88
-offset_left = 6.0
-offset_top = 730.0
-offset_right = 691.0
-offset_bottom = 849.0
-theme_override_colors/default_color = Color(0.0056611504, 0.0056611514, 0.00566115, 1)
-theme_override_font_sizes/normal_font_size = 40
-text = "We could add duck Selection here, if we have different models."
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 z_index = 80

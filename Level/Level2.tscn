@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://bkcvk5g6bhpcy"]
+[gd_scene load_steps=32 format=3 uid="uid://bkcvk5g6bhpcy"]
 
 [ext_resource type="PackedScene" uid="uid://c38pirg0c0dr4" path="res://Level/objects/stone.tscn" id="1_5fcuh"]
 [ext_resource type="PackedScene" uid="uid://cp0r1vciihuun" path="res://Duck/Duck.tscn" id="1_vte4j"]
@@ -20,7 +20,46 @@
 [ext_resource type="PackedScene" uid="uid://badc7e8hmyivv" path="res://Level/Lake/river_right.tscn" id="12_mvbbc"]
 [ext_resource type="PackedScene" uid="uid://c8vlpj0qkboss" path="res://Level/Lake/river_left.tscn" id="13_12xmp"]
 [ext_resource type="PackedScene" uid="uid://bw7pjof3myd1m" path="res://Level/land/green_round.tscn" id="18_d47wi"]
+[ext_resource type="Script" uid="uid://eodht6sslyou" path="res://Level/EndSwitch.cs" id="21_63yym"]
 [ext_resource type="AudioStream" uid="uid://bkbjw0kqydxby" path="res://Sounds/park_ambience_wind.wav" id="21_d47wi"]
+[ext_resource type="PackedScene" uid="uid://cc3y4e4q4tl3d" path="res://Level/objects/bridge.tscn" id="22_m5s1n"]
+
+[sub_resource type="Animation" id="Animation_8wwbj"]
+resource_name = "swoosh"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 2, 3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_fxmpn"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_m2ck0"]
+_data = {
+&"RESET": SubResource("Animation_fxmpn"),
+&"swoosh": SubResource("Animation_8wwbj")
+}
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mvbbc"]
 size = Vector2(1300, 600)
@@ -75,7 +114,7 @@ position = Vector2(-265, -7179)
 rotation = -1.8368924
 
 [node name="Bread4" parent="Obstacles" instance=ExtResource("4_fbsbn")]
-position = Vector2(-783, -7379)
+position = Vector2(-700.0005, -7311)
 rotation = -0.7900593
 
 [node name="Stone5" parent="Obstacles" instance=ExtResource("3_dfp7q")]
@@ -110,6 +149,7 @@ position = Vector2(3210, -3497)
 
 [node name="Duck" parent="Objects" instance=ExtResource("1_vte4j")]
 position = Vector2(574, 788)
+WaterSpeed = 400.0
 
 [node name="Camera2D2" type="Camera2D" parent="Objects/Duck"]
 limit_left = -1200
@@ -158,6 +198,24 @@ position = Vector2(1402, -4520)
 position = Vector2(3167, -2206)
 rotation = 0.17244793
 scale = Vector2(1, 1)
+
+[node name="Prompt" type="Label" parent="Objects"]
+z_index = 99
+offset_left = 376.0
+offset_top = 415.0
+offset_right = 796.0
+offset_bottom = 584.0
+theme_override_colors/font_color = Color(0.88154185, 0.62730867, 0.5234305, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 60
+text = "Eat bread and 
+Find Duckings!"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Objects/Prompt"]
+libraries = {
+&"": SubResource("AnimationLibrary_m2ck0")
+}
+autoplay = "swoosh"
 
 [node name="Land" type="Node2D" parent="."]
 
@@ -275,18 +333,24 @@ scale = Vector2(3, 3.5)
 collision_layer = 1
 
 [node name="Area2D2" parent="Land" instance=ExtResource("18_d47wi")]
-position = Vector2(3130, 591.99994)
+position = Vector2(3114, 568)
 scale = Vector2(5, 5)
+collision_layer = 3
+collision_mask = 1
 
 [node name="Area2D3" parent="Land" instance=ExtResource("18_d47wi")]
-position = Vector2(-2494, 87.99989)
+position = Vector2(-2453, 103.99998)
 rotation = -0.30083686
 scale = Vector2(5, 5)
+collision_layer = 3
+collision_mask = 1
 
 [node name="Area2D4" parent="Land" instance=ExtResource("18_d47wi")]
 position = Vector2(-1214, -3811)
 rotation = -2.898246
 scale = Vector2(5, 5)
+collision_layer = 3
+collision_mask = 1
 
 [node name="GreenLand_long2" parent="Land" instance=ExtResource("9_2elvr")]
 position = Vector2(-1358, -7007)
@@ -297,6 +361,8 @@ scale = Vector2(4, 4)
 position = Vector2(539.9995, -8488)
 rotation = 0.70330393
 scale = Vector2(3, 3)
+collision_layer = 3
+collision_mask = 1
 
 [node name="GreenLand_long3" parent="Land" instance=ExtResource("9_2elvr")]
 position = Vector2(-731, -6522)
@@ -382,7 +448,8 @@ autoplay = true
 
 [node name="LevelSwitch" type="Area2D" parent="."]
 z_index = 10
-position = Vector2(-421, -7444)
+position = Vector2(-584, -7696)
+script = ExtResource("21_63yym")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="LevelSwitch"]
 position = Vector2(-276, 196)
@@ -420,3 +487,9 @@ position = Vector2(3928, -7805)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Borders/StaticBody2D4"]
 z_index = 7
 shape = SubResource("SegmentShape2D_k0nak")
+
+[node name="Bridge" parent="." instance=ExtResource("22_m5s1n")]
+z_index = 10
+position = Vector2(-887, -7480.0005)
+rotation = 0.7988951
+scale = Vector2(1.6, 1.5)
