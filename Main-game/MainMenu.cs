@@ -61,7 +61,7 @@ public partial class MainMenu : Node2D
 		main.LoadScene(scenePath);
 		// Hide menu
 		this.Visible = false;
-
+		EmitSignal(nameof(ResumeGame));
 	}
 
 	private void OnStartPressed()
