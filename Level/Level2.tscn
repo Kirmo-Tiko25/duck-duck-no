@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://bkcvk5g6bhpcy"]
+[gd_scene load_steps=34 format=3 uid="uid://bkcvk5g6bhpcy"]
 
 [ext_resource type="PackedScene" uid="uid://c38pirg0c0dr4" path="res://Level/objects/stone.tscn" id="1_5fcuh"]
 [ext_resource type="PackedScene" uid="uid://cp0r1vciihuun" path="res://Duck/Duck.tscn" id="1_vte4j"]
@@ -14,15 +14,32 @@
 [ext_resource type="PackedScene" uid="uid://4gw5rxw8fd0h" path="res://Level/land/green_long.tscn" id="9_2elvr"]
 [ext_resource type="PackedScene" uid="uid://cc5fh0ufu2sgi" path="res://Level/land/land_long.tscn" id="9_5fcuh"]
 [ext_resource type="AudioStream" uid="uid://bd54r4g7vj7eo" path="res://Sounds/AMB_Nature Pack Vol 1_Water Enviroments_ Underground River .mp3" id="9_dfp7q"]
+[ext_resource type="PackedScene" uid="uid://cgqyc0mbgbapv" path="res://Level/objects/stick_3.tscn" id="10_1uws0"]
 [ext_resource type="PackedScene" uid="uid://o8jxbp161bmh" path="res://Level/Lake/river_straight_1.tscn" id="10_iqgyj"]
 [ext_resource type="PackedScene" uid="uid://dmssvvvkq53vl" path="res://Level/Lake/river.tscn" id="11_2elvr"]
 [ext_resource type="PackedScene" uid="uid://dq0rwyqnrjyw0" path="res://Level/Lake/river_straight_2.tscn" id="11_85m8j"]
+[ext_resource type="PackedScene" uid="uid://b2yscqtqg2ool" path="res://Level/objects/Stick1.tscn" id="11_mgsjf"]
 [ext_resource type="PackedScene" uid="uid://badc7e8hmyivv" path="res://Level/Lake/river_right.tscn" id="12_mvbbc"]
 [ext_resource type="PackedScene" uid="uid://c8vlpj0qkboss" path="res://Level/Lake/river_left.tscn" id="13_12xmp"]
 [ext_resource type="PackedScene" uid="uid://bw7pjof3myd1m" path="res://Level/land/green_round.tscn" id="18_d47wi"]
 [ext_resource type="Script" uid="uid://eodht6sslyou" path="res://Level/EndSwitch.cs" id="21_63yym"]
 [ext_resource type="AudioStream" uid="uid://bkbjw0kqydxby" path="res://Sounds/park_ambience_wind.wav" id="21_d47wi"]
 [ext_resource type="PackedScene" uid="uid://cc3y4e4q4tl3d" path="res://Level/objects/bridge.tscn" id="22_m5s1n"]
+
+[sub_resource type="Animation" id="Animation_fxmpn"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
 
 [sub_resource type="Animation" id="Animation_8wwbj"]
 resource_name = "swoosh"
@@ -38,21 +55,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
-}
-
-[sub_resource type="Animation" id="Animation_fxmpn"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 1)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_m2ck0"]
@@ -170,6 +172,10 @@ position = Vector2(1423, -3093)
 [node name="Bush" parent="Objects" instance=ExtResource("5_2elvr")]
 position = Vector2(325, -1949)
 
+[node name="Bush5" parent="Objects" instance=ExtResource("5_2elvr")]
+position = Vector2(-925, -6788)
+rotation = -0.5708357
+
 [node name="Tree1" parent="Objects" instance=ExtResource("6_4jxqv")]
 position = Vector2(759, -630)
 
@@ -216,6 +222,92 @@ libraries = {
 &"": SubResource("AnimationLibrary_m2ck0")
 }
 autoplay = "swoosh"
+
+[node name="Tree8" parent="Objects" instance=ExtResource("6_4jxqv")]
+position = Vector2(-268, -6186)
+
+[node name="Tree9" parent="Objects" instance=ExtResource("7_iqgyj")]
+position = Vector2(186, -7152)
+
+[node name="Stone2" parent="Objects" instance=ExtResource("3_dfp7q")]
+position = Vector2(-1083, -6798)
+
+[node name="Stone" parent="Objects" instance=ExtResource("1_5fcuh")]
+position = Vector2(127, -6892)
+
+[node name="Tree10" parent="Objects" instance=ExtResource("6_4jxqv")]
+position = Vector2(-719, -7724)
+
+[node name="Tree11" parent="Objects" instance=ExtResource("7_iqgyj")]
+position = Vector2(-421, -7767)
+
+[node name="Tree12" parent="Objects" instance=ExtResource("6_4jxqv")]
+position = Vector2(365, -5325)
+
+[node name="Tree13" parent="Objects" instance=ExtResource("7_iqgyj")]
+position = Vector2(2637, -4781)
+
+[node name="Tree14" parent="Objects" instance=ExtResource("7_iqgyj")]
+position = Vector2(2851, -4547)
+
+[node name="Tree15" parent="Objects" instance=ExtResource("7_iqgyj")]
+position = Vector2(2226, -4895)
+
+[node name="Tree16" parent="Objects" instance=ExtResource("7_iqgyj")]
+position = Vector2(3152, -4292)
+
+[node name="Tree17" parent="Objects" instance=ExtResource("7_iqgyj")]
+position = Vector2(1150, 811)
+
+[node name="Tree18" parent="Objects" instance=ExtResource("7_iqgyj")]
+position = Vector2(1639, 1099)
+
+[node name="Tree19" parent="Objects" instance=ExtResource("6_4jxqv")]
+position = Vector2(1443, 531)
+
+[node name="Stick3" parent="Objects" instance=ExtResource("10_1uws0")]
+position = Vector2(1313, 920)
+
+[node name="Stick1" parent="Objects" instance=ExtResource("11_mgsjf")]
+position = Vector2(415, -1854)
+
+[node name="StickPile" parent="Objects" instance=ExtResource("3_7emdk")]
+z_index = 5
+position = Vector2(3125, -2675)
+rotation = -1.4388916
+
+[node name="Bush6" parent="Objects" instance=ExtResource("5_2elvr")]
+position = Vector2(1159, -1522)
+
+[node name="Bush7" parent="Objects" instance=ExtResource("5_2elvr")]
+position = Vector2(1029, -2508)
+
+[node name="Bush8" parent="Objects" instance=ExtResource("5_2elvr")]
+position = Vector2(1685, -2826)
+
+[node name="Tree20" parent="Objects" instance=ExtResource("6_4jxqv")]
+position = Vector2(1259, -2759)
+
+[node name="Tree21" parent="Objects" instance=ExtResource("6_4jxqv")]
+position = Vector2(1902, -6420)
+
+[node name="Stone3" parent="Objects" instance=ExtResource("1_5fcuh")]
+position = Vector2(3264, -5597)
+
+[node name="Stone4" parent="Objects" instance=ExtResource("1_5fcuh")]
+position = Vector2(-755, -5309)
+
+[node name="Tree22" parent="Objects" instance=ExtResource("7_iqgyj")]
+position = Vector2(-1048, -5823)
+
+[node name="Tree23" parent="Objects" instance=ExtResource("7_iqgyj")]
+position = Vector2(-806, 1224)
+
+[node name="Tree24" parent="Objects" instance=ExtResource("6_4jxqv")]
+position = Vector2(-1386, -648)
+
+[node name="Tree25" parent="Objects" instance=ExtResource("7_iqgyj")]
+position = Vector2(1483, -1321)
 
 [node name="Land" type="Node2D" parent="."]
 
@@ -473,6 +565,7 @@ shape = SubResource("SegmentShape2D_d47wi")
 position = Vector2(-1225, -7686)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Borders/StaticBody2D2"]
+position = Vector2(237, 229)
 shape = SubResource("SegmentShape2D_m5s1n")
 
 [node name="StaticBody2D3" type="StaticBody2D" parent="Borders"]

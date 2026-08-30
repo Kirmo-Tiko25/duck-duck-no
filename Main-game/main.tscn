@@ -103,6 +103,42 @@ theme_override_colors/font_color = Color(0.627451, 0.47058824, 0.24705882, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 48
 
+[node name="TouchScreen_UP" type="TouchScreenButton" parent="UI/HUD"]
+process_mode = 3
+z_index = 99
+position = Vector2(279, 1031)
+rotation = -1.5707964
+texture_normal = ExtResource("5_0xh18")
+passby_press = true
+action = "ui_up"
+visibility_mode = 1
+
+[node name="TouchScreen_Down" type="TouchScreenButton" parent="UI/HUD"]
+process_mode = 3
+z_index = 99
+position = Vector2(415, 1029)
+rotation = 1.5707964
+texture_normal = ExtResource("5_0xh18")
+passby_press = true
+action = "ui_down"
+
+[node name="TouchScreen_Left" type="TouchScreenButton" parent="UI/HUD"]
+process_mode = 3
+z_index = 98
+position = Vector2(297, 1096)
+rotation = 3.1415927
+texture_normal = ExtResource("5_0xh18")
+passby_press = true
+action = "ui_left"
+
+[node name="TouchScreen_Right" type="TouchScreenButton" parent="UI/HUD"]
+process_mode = 3
+z_index = 98
+position = Vector2(399, 960)
+texture_normal = ExtResource("5_0xh18")
+passby_press = true
+action = "ui_right"
+
 [node name="Level" type="Node2D" parent="."]
 process_mode = 1
 z_index = 10
