@@ -33,18 +33,32 @@ grow_vertical = 2
 [node name="Quit" type="Button" parent="Control"]
 z_index = 99
 layout_mode = 0
-offset_left = 250.0
-offset_top = 782.0
-offset_right = 384.0
-offset_bottom = 873.0
+offset_left = 512.0
+offset_top = 759.0
+offset_right = 646.0
+offset_bottom = 850.0
 theme_override_font_sizes/font_size = 60
 text = "Quit"
 
+[node name="Label" type="Label" parent="Control"]
+z_index = 91
+layout_mode = 0
+offset_left = 129.0
+offset_top = 769.0
+offset_right = 595.0
+offset_bottom = 940.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0.78636634, 0.3938322, 0.3281646, 0)
+theme_override_font_sizes/font_size = 28
+text = "Credits:
+Kirmo Lassheikki (code) 
+Heikki Kotilainen (art)"
+
 [node name="Sprite2D" type="Sprite2D" parent="."]
 z_index = 90
-position = Vector2(327.00003, 546.00006)
+position = Vector2(325.38943, 546.00006)
 rotation = 3.1415927
-scale = Vector2(1.7, 1.7)
+scale = Vector2(1.575516, 1.7)
 texture = ExtResource("2_nmd8u")
 
 [node name="FollowerCountLabel" type="Label" parent="."]
